@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ERB Decoración Interior y Exterior</title>
+<meta name="description" content="Instalación premium en Barcelona y Girona.">
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="images/ERBlogosinfondo.png" alt="ERB">
+  </div>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="#" data-translate="nav_inicio">Inicio</a>
+    <a href="#" data-translate="nav_servicios">Servicios</a>
+    <a href="#" data-translate="nav_galeria">Galería</a>
+    <a href="#" data-translate="nav_nosotros">Nosotros</a>
+    <a href="#" data-translate="nav_contacto">Contacto</a>
+  </nav>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-slider" id="hero-slider">
+    <div class="slide"><div class="slide-bg"></div></div>
+    <div class="slide"><div class="slide-bg"></div></div>
+    <div class="slide"><div class="slide-bg"></div></div>
+    <div class="slide"><div class="slide-bg"></div></div>
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1 data-translate="hero_title">Diseño. Precisión.<br>Elegancia Exterior.</h1>
+    <p data-translate="hero_subtitle">ERB · Barcelona & Girona</p>
+    <a href="presupuesto.html" class="btn-dark" data-translate="hero_button">
+  Solicitar Estudio Personalizado
+</a>
+  </div>
+</section>
+
+<section class="product-bar">
+  <a href="#" class="product-item active" data-category="pergolas" data-translate="cat_pergolas">Pérgolas</a>
+  <a href="#" class="product-item" data-category="toldos" data-translate="cat_toldos">Toldos</a>
+  <a href="#" class="product-item" data-category="cortinas" data-translate="cat_cortinas">Cortinas</a>
+  <a href="#" class="product-item" data-category="mosquiteras" data-translate="cat_mosquiteras">Mosquiteras</a>
+</section>
+
+<section class="products-section">
+  <div class="products-container" id="products-container"></div>
+</section>
+
+<div class="language-switch">
+  <button id="btn-es" class="active">ES</button>
+  <button id="btn-cat">CAT</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+let currentLanguage="es";
+let currentCategory="pergolas";
+let currentSlide=0;
+let interval;
+
+/* ================= HERO ================= */
+
+const heroImages={
+  pergolas:["images/bioclimatica1.jpeg","images/bioclimatica2.jpeg","images/bioclimatica3.jpeg"],
+  toldos:["images/toldocofre.png","images/toldomonobloc.jpg","images/toldocofre1.png"],
+  cortinas:["images/cortina1.jpg","images/cortina2.jpg","images/cortina3.jpg"],
+  mosquiteras:["images/mosquitera1.jpg","images/mosquitera2.jpg","images/mosquitera3.jpg"]
+};
+
+const slider=document.getElementById("hero-slider");
+const slides=document.querySelectorAll(".slide-bg");
+
+function loadHero(category){
+  currentSlide=0;
+  slider.style.transition="none";
+  slider.style.transform="translateX(0%)";
+
+  slides.forEach((slide,index)=>{
+    const images=heroImages[category];
+    const img=index<images.length?images[index]:images[0];
+    slide.style.backgroundImage=`url('${img}')`;
+  });
+
+  startSlider();
+}
+
+function startSlider(){
+  clearInterval(interval);
+  interval=setInterval(()=>{
+    currentSlide++;
+    slider.style.transition="transform 1.5s ease-in-out";
+    slider.style.transform=`translateX(-${currentSlide*100}%)`;
+
+    if(currentSlide===slides.length-1){
+      setTimeout(()=>{
+        slider.style.transition="none";
+        currentSlide=0;
+        slider.style.transform="translateX(0%)";
+      },1500);
+    }
+  },8000);
+}
+
+/* ================= PRODUCTOS ================= */
+
+const productsData={
+  pergolas:[
+    {
+      images:["images/bioclimatica1.jpeg"],
+      link:"pergolas/bioclimatica.html",
+      es:{t:"Pérgola Bioclimática",d:"Sistema bioclimático premium."},
+      cat:{t:"Pèrgola Bioclimàtica",d:"Sistema bioclimàtic premium."}
+    },
+    {
+      images:["images/cerropergosystem.jfif"],
+      link:"pergolas/tecnica.html",
+      es:{t:"Pérgola Técnica",d:"Diseño elegante y resistente."},
+      cat:{t:"Pèrgola Tècnica",d:"Disseny elegant i resistent."}
+    },
+    {
+      images:["images/compact1pergosystem.jpg"],
+      link:"pergolas/toldo-corredero.html",
+      es:{t:"Pérgola Toldo Corredero",d:"Minimalismo y precisión."},
+      cat:{t:"Pèrgola Toldo Corredor",d:"Minimalisme i precisió."}
+    }
+  ],
+
+  toldos:[
+    {
+      images:["images/2026_002.jpg","images/2026_004.png","images/2036_009.jpg","images/2036_010.jpg"],
+      link:"toldos/brazos-articulados.html",
+      es:{t:"Brazos Articulados",d:"Versatilidad total."},
+      cat:{t:"Braços Articulats",d:"Versatilitat total."}
+    },
+    {
+      images:["images/5026_002.jpg","images/5026_004.jpg","images/5036_011.jpg","images/5036_013.jpg","images/5066_002.png"],
+      link:"toldos/cofre.html",
+      es:{t:"Cofre",d:"Máxima protección."},
+      cat:{t:"Cofre",d:"Màxima protecció."}
+    },
+    {
+      images:["images/4006_003.jpg","images/4006_002.jpg","images/4009_006.png","images/1020_003.jpg","images/1013_001.jpg"],
+      link:"toldos/vertical.html",
+      es:{t:"Vertical",d:"Protección frontal elegante."},
+      cat:{t:"Vertical",d:"Protecció frontal elegant."}
+    },
+    {
+      images:["images/toldocofre.png"],
+      link:"toldos/veranda.html",
+      es:{t:"Veranda",d:"Ideal para techos y pérgolas."},
+      cat:{t:"Veranda",d:"Ideal per a sostres i pèrgoles."}
+    }
+  ]
+};
+
+function loadProducts(category){
+  const container=document.getElementById("products-container");
+  container.innerHTML="";
+
+  productsData[category].forEach((p,index)=>{
+
+    container.innerHTML+=`
+      <a href="${p.link}" class="product-card">
+        <div class="product-slider">
+          ${p.images.length>1?`<button class="arrow left">‹</button>`:""}
+          <div class="product-image" 
+               data-images='${JSON.stringify(p.images)}'
+               data-position="0"
+               style="background-image:url('${p.images[0]}')">
+          </div>
+          ${p.images.length>1?`<button class="arrow right">›</button>`:""}
+        </div>
+
+        <div class="product-info">
+          <h3>${p[currentLanguage].t}</h3>
+          <p>${p[currentLanguage].d}</p>
+        </div>
+      </a>
+    `;
+  });
+
+  activateSliders();
+}
+
+function activateSliders(){
+  document.querySelectorAll(".product-slider").forEach(slider=>{
+    const imageDiv=slider.querySelector(".product-image");
+    const left=slider.querySelector(".left");
+    const right=slider.querySelector(".right");
+
+    if(!left || !right) return;
+
+    const images=JSON.parse(imageDiv.dataset.images);
+
+    left.addEventListener("click",(e)=>{
+      e.preventDefault(); e.stopPropagation();
+      let pos=parseInt(imageDiv.dataset.position);
+      pos=pos<=0?images.length-1:pos-1;
+      imageDiv.dataset.position=pos;
+      imageDiv.style.backgroundImage=`url('${images[pos]}')`;
+    });
+
+    right.addEventListener("click",(e)=>{
+      e.preventDefault(); e.stopPropagation();
+      let pos=parseInt(imageDiv.dataset.position);
+      pos=pos>=images.length-1?0:pos+1;
+      imageDiv.dataset.position=pos;
+      imageDiv.style.backgroundImage=`url('${images[pos]}')`;
+    });
+  });
+}
+
+/* ================= TRADUCCIÓN ================= */
+
+const translations={
+  es:{nav_inicio:"Inicio",nav_servicios:"Servicios",nav_galeria:"Galería",nav_nosotros:"Nosotros",nav_contacto:"Contacto",hero_title:"Diseño. Precisión.<br>Elegancia Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Solicitar Estudio Personalizado",cat_pergolas:"Pérgolas",cat_toldos:"Toldos",cat_cortinas:"Cortinas",cat_mosquiteras:"Mosquiteras"},
+  cat:{nav_inicio:"Inici",nav_servicios:"Serveis",nav_galeria:"Galeria",nav_nosotros:"Nosaltres",nav_contacto:"Contacte",hero_title:"Disseny. Precisió.<br>Elegància Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Sol·licitar Estudi Personalitzat",cat_pergolas:"Pèrgoles",cat_toldos:"Tendals",cat_cortinas:"Cortines",cat_mosquiteras:"Mosquiteres"}
+};
+
+function translatePage(lang){
+  document.querySelectorAll("[data-translate]").forEach(el=>{
+    const key=el.dataset.translate;
+    if(translations[lang][key]) el.innerHTML=translations[lang][key];
+  });
+  loadProducts(currentCategory);
+}
+
+document.getElementById("btn-es").onclick=()=>{
+  currentLanguage="es";
+  document.getElementById("btn-es").classList.add("active");
+  document.getElementById("btn-cat").classList.remove("active");
+  translatePage("es");
+};
+
+document.getElementById("btn-cat").onclick=()=>{
+  currentLanguage="cat";
+  document.getElementById("btn-cat").classList.add("active");
+  document.getElementById("btn-es").classList.remove("active");
+  translatePage("cat");
+};
+
+document.querySelectorAll(".product-item").forEach(item=>{
+  item.addEventListener("click",e=>{
+    e.preventDefault();
+    document.querySelectorAll(".product-item").forEach(i=>i.classList.remove("active"));
+    item.classList.add("active");
+    currentCategory=item.dataset.category;
+    loadHero(currentCategory);
+    loadProducts(currentCategory);
+  });
+});
+
+loadHero(currentCategory);
+loadProducts(currentCategory);
+
+});
+</script>
+
+</body>
+</html>
