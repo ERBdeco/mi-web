@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Toldos Cofre | ERB Deco</title>
+<meta name="description" content="Toldos cofre premium en Barcelona y Girona. Diseño elegante y máxima protección.">
+
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <a href="../index.html">
+      <img src="../images/ERBlogosinfondo.png" alt="ERB">
+    </a>
+  </div>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="../index.html" data-translate="nav_inicio">Inicio</a>
+    <a href="#" data-translate="nav_servicios">Servicios</a>
+    <a href="#" data-translate="nav_galeria">Galería</a>
+    <a href="#" data-translate="nav_nosotros">Nosotros</a>
+    <a href="#" data-translate="nav_contacto">Contacto</a>
+  </nav>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+
+<!-- PRODUCTOS DIRECTAMENTE -->
+<section class="products-section" style="padding-top:140px;">
+
+  <div class="products-container">
+
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('../images/toldocofre.png')"></div>
+      <div class="product-info">
+        <h3 data-translate="cofre_1_t">Cofre Compact</h3>
+        <p data-translate="cofre_1_d">Diseño minimalista con máxima protección.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('../images/toldocofre.png')"></div>
+      <div class="product-info">
+        <h3 data-translate="cofre_2_t">Cofre Premium</h3>
+        <p data-translate="cofre_2_d">Estética elegante y resistencia superior.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('../images/toldocofre.png')"></div>
+      <div class="product-info">
+        <h3 data-translate="cofre_3_t">Cofre Design</h3>
+        <p data-translate="cofre_3_d">Integración perfecta en arquitectura moderna.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('../images/toldocofre.png')"></div>
+      <div class="product-info">
+        <h3 data-translate="cofre_4_t">Cofre Elite</h3>
+        <p data-translate="cofre_4_d">Acabados de alta gama y máxima durabilidad.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BOTÓN IDIOMA -->
+<div class="language-switch">
+  <button id="btn-es" class="active">ES</button>
+  <button id="btn-cat">CAT</button>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+let currentLanguage="es";
+
+/* ================= TRADUCCIONES ================= */
+
+const translations={
+  es:{
+    nav_inicio:"Inicio",
+    nav_servicios:"Servicios",
+    nav_galeria:"Galería",
+    nav_nosotros:"Nosotros",
+    nav_contacto:"Contacto",
+
+    cofre_1_t:"Cofre Compact",
+    cofre_1_d:"Diseño minimalista con máxima protección.",
+
+    cofre_2_t:"Cofre Premium",
+    cofre_2_d:"Estética elegante y resistencia superior.",
+
+    cofre_3_t:"Cofre Design",
+    cofre_3_d:"Integración perfecta en arquitectura moderna.",
+
+    cofre_4_t:"Cofre Elite",
+    cofre_4_d:"Acabados de alta gama y máxima durabilidad."
+  },
+
+  cat:{
+    nav_inicio:"Inici",
+    nav_servicios:"Serveis",
+    nav_galeria:"Galeria",
+    nav_nosotros:"Nosaltres",
+    nav_contacto:"Contacte",
+
+    cofre_1_t:"Cofre Compact",
+    cofre_1_d:"Disseny minimalista amb màxima protecció.",
+
+    cofre_2_t:"Cofre Premium",
+    cofre_2_d:"Estètica elegant i resistència superior.",
+
+    cofre_3_t:"Cofre Design",
+    cofre_3_d:"Integració perfecta en arquitectura moderna.",
+
+    cofre_4_t:"Cofre Elite",
+    cofre_4_d:"Acabats d'alta gamma i màxima durabilitat."
+  }
+};
+
+function translatePage(lang){
+  document.querySelectorAll("[data-translate]").forEach(el=>{
+    const key=el.dataset.translate;
+    if(translations[lang][key]){
+      el.innerHTML=translations[lang][key];
+    }
+  });
+}
+
+document.getElementById("btn-es").addEventListener("click",()=>{
+  currentLanguage="es";
+  document.getElementById("btn-es").classList.add("active");
+  document.getElementById("btn-cat").classList.remove("active");
+  translatePage("es");
+});
+
+document.getElementById("btn-cat").addEventListener("click",()=>{
+  currentLanguage="cat";
+  document.getElementById("btn-cat").classList.add("active");
+  document.getElementById("btn-es").classList.remove("active");
+  translatePage("cat");
+});
+
+/* ================= HAMBURGUESA ================= */
+
+const toggle=document.getElementById("menu-toggle");
+const nav=document.getElementById("nav-links");
+
+toggle.addEventListener("click",()=>{
+  nav.classList.toggle("active");
+});
+
+});
+</script>
+
+</body>
+</html>
