@@ -86,6 +86,7 @@ const heroImages={
 
 const slider=document.getElementById("hero-slider");
 const slides=document.querySelectorAll(".slide-bg");
+if(slides.length===0) return;
 
 function loadHero(category){
   currentSlide=0;
@@ -269,6 +270,17 @@ document.querySelectorAll(".product-item").forEach(item=>{
 
 loadHero(currentCategory);
 loadProducts(currentCategory);
+
+/* ================= MENU HAMBURGUESA ================= */
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if(menuToggle){
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+}
 
 });
 </script>

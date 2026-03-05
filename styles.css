@@ -143,11 +143,15 @@ a {
 .product-bar {
   background: #111;
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  padding: 25px 0;
+  justify-content: flex-start;
+  gap: 40px;
+  padding: 25px 20px;
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
+
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .product-item {
@@ -155,6 +159,7 @@ a {
   font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
+  flex: 0 0 auto;
 }
 
 .product-item.active,
@@ -892,16 +897,19 @@ a {
   .nav-links {
     position: absolute;
     top: 110px;
-    right: 0;
+    right: -260px;
     background: #111;
     flex-direction: column;
     width: 250px;
-    padding: 30px;
-    display: none;
+    padding: 35px;
+    gap: 25px;
+    transition: right 0.35s ease;
+    border-bottom-left-radius: 22px;
+    box-shadow: -10px 10px 30px rgba(0,0,0,0.5);
   }
 
   .nav-links.active {
-    display: flex;
+    right: 0;
   }
 
   .menu-toggle {
@@ -925,5 +933,9 @@ a {
 
   .btn-estudio {
     display: none;
+  }
+
+  .navbar {
+    padding: 0 25px;
   }
 }
