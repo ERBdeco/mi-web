@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazos Articulados | ERB Deco</title>
+
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <a href="../index.html">
+      <img src="../images/ERBlogosinfondo.png" alt="ERB">
+    </a>
+  </div>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="../index.html">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Galería</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<section class="products-section page-products">
+  <div class="products-container">
+
+    <!-- PERGOLA BIOCLIMATICA CONCEPT  -->
+    <a href="productos/smart.html" class="product-card">
+      <div class="product-slider" data-images='[
+        "../images/bioclimatica1.jpeg",
+        "../images/bioclimatica2.jpeg",
+        "../images/bioclimatica3.jpeg",
+        "../images/bioclimatica4.jpeg",
+        "../images/bioclimatica5.jpeg"
+      ]'>
+        <div class="arrow left">&#10094;</div>
+        <div class="product-image"></div>
+        <div class="arrow right">&#10095;</div>
+      </div>
+      <div class="product-info">
+        <h3>Toldo Brazos Invisibles Smart</h3>
+        <p>Diseño compacto y elegante para terrazas modernas.</p>
+        <span class="price">Desde 540,62€</span>
+      </div>
+    </a>
+
+    <!-- 2036 CONCEPT -->
+    <a href="productos/concept.html" class="product-card">
+      <div class="product-slider" data-images='[
+        "../images/2036_009.jpg",
+        "../images/2036_010.jpg"
+      ]'>
+        <div class="arrow left">&#10094;</div>
+        <div class="product-image"></div>
+        <div class="arrow right">&#10095;</div>
+      </div>
+      <div class="product-info">
+        <h3>Toldo Brazos Invisibles Concept</h3>
+        <p>Estética avanzada con máxima resistencia estructural.</p>
+        <span class="price">Desde 695,56€</span>
+      </div>
+    </a>
+
+    <!-- 3046 M-CONCEPT -->
+    <a href="productos/m-concept.html" class="product-card">
+      <div class="product-slider" data-images='[
+        "../images/3046_004.jpg",
+        "../images/3046_005.jpg"
+      ]'>
+        <div class="arrow left">&#10094;</div>
+        <div class="product-image"></div>
+        <div class="arrow right">&#10095;</div>
+      </div>
+      <div class="product-info">
+        <h3>Monobloc M-Concept</h3>
+        <p>Potencia estructural con diseño minimalista.</p>
+        <span class="price">Desde 947,02€</span>
+      </div>
+    </a>
+
+    <!-- 3092 M1 ARKO -->
+    <a href="productos/m1-arko.html" class="product-card">
+      <div class="product-slider" data-images='[
+        "../images/3092_001.jpg",
+        "../images/3092_002.png",
+        "../images/3092_003.jpg"
+      ]'>
+        <div class="arrow left">&#10094;</div>
+        <div class="product-image"></div>
+        <div class="arrow right">&#10095;</div>
+      </div>
+      <div class="product-info">
+        <h3>Monobloc M1-Arko</h3>
+        <p>Modelo premium de alto rendimiento para grandes superficies.</p>
+        <span class="price">Desde 2887€</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<script>
+document.querySelectorAll(".product-slider").forEach(slider=>{
+  const images = JSON.parse(slider.dataset.images);
+  const imgDiv = slider.querySelector(".product-image");
+  const left = slider.querySelector(".left");
+  const right = slider.querySelector(".right");
+
+  let index=0;
+
+  function setImage(i){
+    imgDiv.style.backgroundImage = `url('${images[i]}')`;
+  }
+
+  setImage(index);
+
+  right.addEventListener("click",(e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    index=(index+1)%images.length;
+    setImage(index);
+  });
+
+  left.addEventListener("click",(e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    index=(index-1+images.length)%images.length;
+    setImage(index);
+  });
+});
+</script>
+
+</body>
+</html>
