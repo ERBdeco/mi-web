@@ -1,288 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Presupuesto Toldo Concept | ERB Deco</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto | ERB Deco</title>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="budget.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="budget.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="logo">
-    <a href="index.html">
-      <img src="images/ERBlogosinfondo.png" alt="ERB">
-    </a>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/ERBlogosinfondo.png" alt="ERB">
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Galería</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- FONDO SLIDER -->
+  <div class="budget-bg-slider">
+    <div class="budget-bg-slide active" style="background-image:url('images/2036_009.jpg')"></div>
+    <div class="budget-bg-slide" style="background-image:url('images/2036_010.jpg')"></div>
   </div>
 
-  <nav class="nav-links">
-    <a href="index.html">Inicio</a>
-    <a href="#">Servicios</a>
-    <a href="#">Galería</a>
-    <a href="#">Nosotros</a>
-    <a href="#">Contacto</a>
-  </nav>
-</header>
+  <div class="budget-overlay"></div>
 
-<!-- ===== FONDO SLIDER ===== -->
-<div class="budget-bg-slider">
-  <div class="budget-bg-slide active" style="background-image:url('images/2036_009.jpg')"></div>
-  <div class="budget-bg-slide" style="background-image:url('images/2036_010.jpg')"></div>
-</div>
+  <!-- CONTENIDO -->
+  <section class="budget-section premium-budget">
+    <div class="budget-container">
 
-<div class="budget-overlay"></div>
+      <h1 id="titulo-producto">Configura tu Producto</h1>
+      <p id="descripcion-producto">
+        Personaliza tu producto y déjanos tus datos para enviarte el presupuesto.
+      </p>
 
-<!-- ===== CONTENIDO ===== -->
-<section class="budget-section premium-budget">
+      <form class="budget-form" action="https://formspree.io/f/mreyplzg" method="POST">
+        
+        <input type="hidden" name="_subject" id="subject-hidden" value="Nuevo presupuesto desde ERB Deco">
+        <input type="hidden" name="_language" value="es">
+        <input type="hidden" name="producto" id="producto-hidden">
 
-  <div class="budget-container">
+        <!-- COLOR ESTRUCTURA -->
+        <div class="form-group">
+          <label>Color de la estructura</label>
+          <div class="color-selector">
 
-    <h1 id="titulo-producto">Configura tu Toldo Concept</h1>
-    <p>Personaliza tu toldo y déjanos tus datos para enviarte el presupuesto.</p>
+            <label>
+              <input type="radio" name="color_estructura" value="Blanco" hidden>
+              <div class="color-option" style="background:#ffffff;" data-color="Blanco"></div>
+            </label>
 
-    <form class="budget-form">
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 1013" hidden>
+              <div class="color-option" style="background:#eae1c8;" data-color="RAL 1013"></div>
+            </label>
 
-      <!-- COLOR ESTRUCTURA -->
-      <div class="form-group">
-        <label>Color de la estructura</label>
-        <div class="color-selector">
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 7016" hidden>
+              <div class="color-option" style="background:#383e42;" data-color="RAL 7016"></div>
+            </label>
 
-          <!-- COLORES -->
-          <!-- Blanco -->
-          <label><input type="radio" name="color_estructura" value="Blanco" hidden>
-            <div class="color-option" style="background:#ffffff;" data-color="Blanco"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 7016 Texturado" hidden>
+              <div class="color-option" style="background:#2f3438;" data-color="RAL 7016 Texturado"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 1013" hidden>
-            <div class="color-option" style="background:#eae1c8;" data-color="RAL 1013"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="Plata Texturado" hidden>
+              <div class="color-option" style="background:#c0c0c0;" data-color="Plata Texturado"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 7016" hidden>
-            <div class="color-option" style="background:#383e42;" data-color="RAL 7016"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="Bronce Texturado" hidden>
+              <div class="color-option" style="background:#5c4633;" data-color="Bronce Texturado"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 7016 Texturado" hidden>
-            <div class="color-option" style="background:#2f3438;" data-color="RAL 7016 Texturado"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="Negro Texturado" hidden>
+              <div class="color-option" style="background:#1a1a1a;" data-color="Negro Texturado"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="Plata Texturado" hidden>
-            <div class="color-option" style="background:#c0c0c0;" data-color="Plata Texturado"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 8014" hidden>
+              <div class="color-option" style="background:#4b2e2b;" data-color="RAL 8014"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="Bronce Texturado" hidden>
-            <div class="color-option" style="background:#5c4633;" data-color="Bronce Texturado"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 8017" hidden>
+              <div class="color-option" style="background:#3f2a23;" data-color="RAL 8017"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="Negro Texturado" hidden>
-            <div class="color-option" style="background:#1a1a1a;" data-color="Negro Texturado"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 8019" hidden>
+              <div class="color-option" style="background:#2e2b28;" data-color="RAL 8019"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 8014" hidden>
-            <div class="color-option" style="background:#4b2e2b;" data-color="RAL 8014"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 7035" hidden>
+              <div class="color-option" style="background:#d7d7d7;" data-color="RAL 7035"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 8017" hidden>
-            <div class="color-option" style="background:#3f2a23;" data-color="RAL 8017"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="Inox" hidden>
+              <div class="color-option" style="background:linear-gradient(45deg,#b8b8b8,#f2f2f2);" data-color="Inox"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 8019" hidden>
-            <div class="color-option" style="background:#2e2b28;" data-color="RAL 8019"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 7022" hidden>
+              <div class="color-option" style="background:#4b4f44;" data-color="RAL 7022"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 7035" hidden>
-            <div class="color-option" style="background:#d7d7d7;" data-color="RAL 7035"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 6005" hidden>
+              <div class="color-option" style="background:#0f3b2e;" data-color="RAL 6005"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="Inox" hidden>
-            <div class="color-option" style="background:linear-gradient(45deg,#b8b8b8,#f2f2f2);" data-color="Inox"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 6009" hidden>
+              <div class="color-option" style="background:#1f2f28;" data-color="RAL 6009"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 7022" hidden>
-            <div class="color-option" style="background:#4b4f44;" data-color="RAL 7022"></div>
-          </label>
+            <label>
+              <input type="radio" name="color_estructura" value="RAL 3005" hidden>
+              <div class="color-option" style="background:#5c1a1a;" data-color="RAL 3005"></div>
+            </label>
 
-          <label><input type="radio" name="color_estructura" value="RAL 6005" hidden>
-            <div class="color-option" style="background:#0f3b2e;" data-color="RAL 6005"></div>
-          </label>
-
-          <label><input type="radio" name="color_estructura" value="RAL 6009" hidden>
-            <div class="color-option" style="background:#1f2f28;" data-color="RAL 6009"></div>
-          </label>
-
-          <label><input type="radio" name="color_estructura" value="RAL 3005" hidden>
-            <div class="color-option" style="background:#5c1a1a;" data-color="RAL 3005"></div>
-          </label>
-
+          </div>
         </div>
-      </div>
 
-         <!-- LONA -->
-      <div class="form-group">
-        <label>Tipo de lona </label>
-        <select id="accionamiento" name="accionamiento">
-          <option value="Acrilica">Acrilica</option>
-          <option value="Acrilica Resinada">Acrilica Resinada</option>
-          <option value="Perforada">Perforada</option>
-        </select>
-      </div>
+        <!-- COLOR LAMAS -->
+        <div class="form-group color-lamas" style="display:none;">
+          <label>Color de las lamas</label>
+          <div class="color-selector">
 
-      <!-- COLOR LONA -->
-<div class="form-group">
-  <label>Color de la lona</label>
+            <label>
+              <input type="radio" name="color_lamas" value="Blanco" hidden>
+              <div class="color-option" style="background:#ffffff;" data-color="Blanco"></div>
+            </label>
 
-  <div class="lona-box">
-    <input type="text" name="color_lona" placeholder="Escribe el color de la lona...">
-  </div>
+            <label>
+              <input type="radio" name="color_lamas" value="RAL 7016" hidden>
+              <div class="color-option" style="background:#383e42;" data-color="RAL 7016"></div>
+            </label>
 
-  <a href="#" class="lona-link">Colores de lona</a>
-</div>
+            <label>
+              <input type="radio" name="color_lamas" value="RAL 7022" hidden>
+              <div class="color-option" style="background:#4b4f44;" data-color="RAL 7022"></div>
+            </label>
 
-<!-- MEDIDAS -->
-<div class="form-group">
-  <label>Medidas</label>
+            <label>
+              <input type="radio" name="color_lamas" value="Negro Texturado" hidden>
+              <div class="color-option" style="background:#1a1a1a;" data-color="Negro Texturado"></div>
+            </label>
 
-  <div class="medidas-grid">
+          </div>
+        </div>
 
-    <div class="medida-item">
-      <input type="number" name="ancho" placeholder="Ancho (min-max 1500-3500 cm)">
+        <!-- TIPO LONA -->
+        <div class="form-group tipo-lona">
+          <label>Tipo de lona</label>
+          <select name="tipo_lona">
+            <option value="Acrilica">Acrílica</option>
+            <option value="Acrilica Resinada">Acrílica Resinada</option>
+            <option value="Perforada">Perforada</option>
+          </select>
+        </div>
+
+        <!-- COLOR LONA -->
+        <div class="form-group lona-box">
+          <label>Color de la lona</label>
+          <div class="lona-box-inner">
+            <input type="text" name="color_lona" placeholder="Escribe el color de la lona...">
+          </div>
+          <a href="#" class="lona-link">Colores de lona</a>
+        </div>
+
+        <!-- MEDIDAS -->
+        <div class="form-group medidas-box">
+          <label>Medidas</label>
+
+          <div class="medidas-grid">
+            <div class="medida-item">
+              <input type="number" name="ancho" placeholder="Ancho (mm)">
+            </div>
+
+            <div class="medida-item">
+              <input type="number" id="campo-salida" name="salida" placeholder="Salida (mm)">
+            </div>
+
+            <div class="medida-item altura-box" style="display:none;">
+              <input type="number" name="altura" placeholder="Altura (mm)">
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCIONAMIENTO -->
+        <div class="form-group accionamiento-box">
+          <label>Accionamiento</label>
+          <select name="accionamiento" id="accionamiento">
+            <option value="Manual">Manual</option>
+            <option value="Motorizado">Motorizado</option>
+          </select>
+        </div>
+
+        <!-- EXTRAS TOLDOS -->
+        <div class="form-group extras-toldos">
+          <label>Extras disponibles</label>
+
+          <div class="extras-box">
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Sombrex">
+              <span>Sombrex</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Triángulo lateral">
+              <span>Triángulo lateral</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Iluminación LED">
+              <span>Iluminación LED</span>
+            </label>
+
+            <div id="extras-motor">
+              <label class="extra-item">
+                <input type="checkbox" name="extras[]" value="Detector de viento">
+                <span>Detector de viento</span>
+              </label>
+
+              <label class="extra-item">
+                <input type="checkbox" name="extras[]" value="Detector de sol">
+                <span>Detector de sol</span>
+              </label>
+
+              <label class="extra-item">
+                <input type="checkbox" name="extras[]" value="Control remoto móvil">
+                <span>Control remoto móvil</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXTRAS BIOCLIMATICA -->
+        <div class="form-group extras-bioclimatica" style="display:none;">
+          <label>Opciones de la pérgola</label>
+
+          <div class="extras-box">
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="LED integrado">
+              <span>Iluminación LED</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="ZIP vertical">
+              <span>Toldo ZIP</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Calefacción">
+              <span>Calefacción</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Sensor lluvia">
+              <span>Sensor lluvia</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Sensor viento">
+              <span>Sensor viento</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- DATOS CLIENTE -->
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" name="telefono" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <button type="submit" class="btn-dark">Solicitar Presupuesto</button>
+      </form>
     </div>
+  </section>
 
-    <div class="medida-item">
-      <input type="number" name="salida" placeholder="Salida (min-max 1800-6000 cm)">
-    </div>
+  <script>
+    // ================= PRODUCTO DESDE URL =================
+    const params = new URLSearchParams(window.location.search);
+    const producto = params.get("producto") || "";
 
-  </div>
-</div>
+    const titulo = document.getElementById("titulo-producto");
+    const descripcion = document.getElementById("descripcion-producto");
+    const productoHidden = document.getElementById("producto-hidden");
+    const subjectHidden = document.getElementById("subject-hidden");
 
+    const colorLamas = document.querySelector(".color-lamas");
+    const tipoLona = document.querySelector(".tipo-lona");
+    const lonaBox = document.querySelector(".lona-box");
+    const accionamientoBox = document.querySelector(".accionamiento-box");
+    const extrasToldos = document.querySelector(".extras-toldos");
+    const extrasBioclimatica = document.querySelector(".extras-bioclimatica");
+    const alturaBox = document.querySelector(".altura-box");
+    const campoSalida = document.getElementById("campo-salida");
 
-      <!-- ACCIONAMIENTO -->
-      <div class="form-group">
-        <label>Accionamiento</label>
-        <select id="accionamiento" name="accionamiento">
-          <option value="Manual">Manual</option>
-          <option value="Motorizado">Motorizado</option>
-        </select>
-      </div>
+    if (productoHidden) {
+      productoHidden.value = producto;
+    }
 
-     <!-- EXTRAS -->
-<div class="form-group">
-  <label>Extras disponibles</label>
+    if (producto === "bioclimatica") {
+      titulo.textContent = "Configura tu Pérgola Bioclimática";
+      descripcion.textContent = "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.";
 
-  <div class="extras-box">
+      if (subjectHidden) {
+        subjectHidden.value = "Nuevo presupuesto - Pérgola Bioclimática";
+      }
 
-    <!-- Siempre -->
-    <label class="extra-item">
-      <input type="checkbox" name="extras" value="Sombrex">
-      <span>Sombrex</span>
-    </label>
+      if (colorLamas) colorLamas.style.display = "block";
+      if (tipoLona) tipoLona.style.display = "none";
+      if (lonaBox) lonaBox.style.display = "none";
+      if (accionamientoBox) accionamientoBox.style.display = "none";
+      if (extrasToldos) extrasToldos.style.display = "none";
+      if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+      if (alturaBox) alturaBox.style.display = "block";
+      if (campoSalida) campoSalida.placeholder = "Largo (mm)";
+    } else {
+      if (producto === "concept") {
+        titulo.textContent = "Configura tu Toldo Concept";
+        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Concept";
+      } else if (producto === "smart") {
+        titulo.textContent = "Configura tu Toldo Smart";
+        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Smart";
+      } else if (producto === "cofre") {
+        titulo.textContent = "Configura tu Toldo Cofre";
+        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Cofre";
+      } else if (producto === "vertical") {
+        titulo.textContent = "Configura tu Toldo Vertical";
+        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Vertical";
+      } else if (producto === "veranda") {
+        titulo.textContent = "Configura tu Toldo Veranda";
+        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Veranda";
+      } else {
+        titulo.textContent = "Configura tu Producto";
+      }
+    }
 
-    <label class="extra-item">
-      <input type="checkbox" name="extras" value="Triángulo lateral">
-      <span>Triángulo lateral</span>
-    </label>
+    // ================= SLIDER FONDO =================
+    const slides = document.querySelectorAll(".budget-bg-slide");
+    let currentSlide = 0;
 
-    <label class="extra-item">
-      <input type="checkbox" name="extras" value="Iluminación LED">
-      <span>Iluminación LED</span>
-    </label>
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }, 15000);
+    }
 
-    <!-- SOLO MOTOR -->
-    <div id="extras-motor">
+    // ================= EXTRAS MOTOR =================
+    const accionamientoSelect = document.getElementById("accionamiento");
+    const extrasMotor = document.getElementById("extras-motor");
 
-      <label class="extra-item">
-        <input type="checkbox" name="extras" value="Detector de viento">
-        <span>Detector de viento</span>
-      </label>
+    function actualizarExtras() {
+      if (!accionamientoSelect || !extrasMotor) return;
 
-      <label class="extra-item">
-        <input type="checkbox" name="extras" value="Detector de sol">
-        <span>Detector de sol</span>
-      </label>
+      if (accionamientoSelect.value === "Manual") {
+        extrasMotor.style.display = "none";
+      } else {
+        extrasMotor.style.display = "flex";
+      }
+    }
 
-      <label class="extra-item">
-        <input type="checkbox" name="extras" value="Control remoto móvil">
-        <span>Control remoto móvil</span>
-      </label>
-
-    </div>
-
-  </div>
-</div>
-
-      <!-- DATOS -->
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" required>
-      </div>
-
-      <div class="form-group">
-        <label>Teléfono</label>
-        <input type="tel" required>
-      </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" required>
-      </div>
-
-      <button type="submit" class="btn-dark">Solicitar Presupuesto</button>
-
-    </form>
-  </div>
-
-</section>
-
-<!-- ===== SCRIPT ===== -->
-<script>
-
-// SLIDER 15s
-const slides = document.querySelectorAll(".budget-bg-slide");
-let currentSlide = 0;
-
-setInterval(() => {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
-}, 15000);
-
-// MOSTRAR EXTRAS SEGÚN ACCIONAMIENTO
-const accionamientoSelect = document.getElementById("accionamiento");
-const extrasMotor = document.getElementById("extras-motor");
-
-function actualizarExtras() {
-  if (accionamientoSelect.value === "Manual") {
-    extrasMotor.style.display = "none";
-  } else {
-    extrasMotor.style.display = "flex";
-  }
-}
-
-accionamientoSelect.addEventListener("change", actualizarExtras);
-actualizarExtras();
-
-</script>
-
-<script>
-
-// Detectar producto desde URL
-const params = new URLSearchParams(window.location.search);
-const producto = params.get("producto");
-
-const titulo = document.getElementById("titulo-producto");
-
-if (producto === "concept") {
-  titulo.textContent = "Configura tu Toldo Concept";
-}
-
-if (producto === "smart") {
-  titulo.textContent = "Configura tu Toldo Smart";
-}
-
-</script>
+    if (accionamientoSelect) {
+      accionamientoSelect.addEventListener("change", actualizarExtras);
+      actualizarExtras();
+    }
+  </script>
 
 </body>
 </html>
