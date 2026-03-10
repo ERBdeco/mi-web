@@ -111,53 +111,36 @@
   flex-wrap: wrap;
   gap: 14px;
   position: relative;
-  z-index: 20;
 }
 
 .color-selector label {
   position: relative;
-  z-index: 20;
+  z-index: 1;
+}
+
+.color-selector label:hover {
+  z-index: 50;
 }
 
 .color-option {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.25s ease;
-  box-shadow: 0 0 0 1px #333 inset;
   position: relative;
-  z-index: 20;
 }
-
-.color-option:hover {
-  transform: scale(1.1);
-}
-
-.color-selector input:checked + .color-option {
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 10px rgba(212,175,55,0.6);
-  transform: scale(1.1);
-}
-
-/* ===== TOOLTIP COLOR ===== */
 
 .color-option::after {
   content: attr(data-color);
   position: absolute;
-  bottom: -38px;
+  bottom: -42px;
   left: 50%;
   transform: translateX(-50%);
   background: #111;
   color: #d4af37;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: 0.25s ease;
+  transition: opacity 0.2s ease;
   z-index: 9999;
   border: 1px solid rgba(212,175,55,0.4);
 }
