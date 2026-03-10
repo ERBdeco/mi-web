@@ -45,7 +45,7 @@
         Personaliza tu producto y déjanos tus datos para enviarte el presupuesto.
       </p>
 
-      <form class="budget-form" action="https://formspree.io/f/mreyplzg" method="POST">
+      <form class="budget-form" id="budget-form" action="https://formspree.io/f/mreyplzg" method="POST">
         
         <input type="hidden" name="_subject" id="subject-hidden" value="Nuevo presupuesto desde ERB Deco">
         <input type="hidden" name="_language" value="es">
@@ -300,103 +300,162 @@
           <label>Email</label>
           <input type="email" name="email" required>
         </div>
-
+        <div id="form-status" style="margin-top:15px; color:#d4af37; font-size:14px;"></div>
         <button type="submit" class="btn-dark">Solicitar Presupuesto</button>
       </form>
     </div>
   </section>
+<script>
+  // ================= PRODUCTO DESDE URL =================
+  const params = new URLSearchParams(window.location.search);
+  const producto = params.get("producto") || "";
 
-  <script>
-    // ================= PRODUCTO DESDE URL =================
-    const params = new URLSearchParams(window.location.search);
-    const producto = params.get("producto") || "";
+  const titulo = document.getElementById("titulo-producto");
+  const descripcion = document.getElementById("descripcion-producto");
+  const productoHidden = document.getElementById("producto-hidden");
+  const subjectHidden = document.getElementById("subject-hidden");
 
-    const titulo = document.getElementById("titulo-producto");
-    const descripcion = document.getElementById("descripcion-producto");
-    const productoHidden = document.getElementById("producto-hidden");
-    const subjectHidden = document.getElementById("subject-hidden");
+  const colorLamas = document.querySelector(".color-lamas");
+  const tipoLona = document.querySelector(".tipo-lona");
+  const lonaBox = document.querySelector(".lona-box");
+  const accionamientoBox = document.querySelector(".accionamiento-box");
+  const extrasToldos = document.querySelector(".extras-toldos");
+  const extrasBioclimatica = document.querySelector(".extras-bioclimatica");
+  const alturaBox = document.querySelector(".altura-box");
+  const campoSalida = document.getElementById("campo-salida");
 
-    const colorLamas = document.querySelector(".color-lamas");
-    const tipoLona = document.querySelector(".tipo-lona");
-    const lonaBox = document.querySelector(".lona-box");
-    const accionamientoBox = document.querySelector(".accionamiento-box");
-    const extrasToldos = document.querySelector(".extras-toldos");
-    const extrasBioclimatica = document.querySelector(".extras-bioclimatica");
-    const alturaBox = document.querySelector(".altura-box");
-    const campoSalida = document.getElementById("campo-salida");
+  if (productoHidden) {
+    productoHidden.value = producto;
+  }
 
-    if (productoHidden) {
-      productoHidden.value = producto;
+  if (producto === "bioclimatica") {
+    titulo.textContent = "Configura tu Pérgola Bioclimática";
+    descripcion.textContent = "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.";
+
+    if (subjectHidden) {
+      subjectHidden.value = "Nuevo presupuesto - Pérgola Bioclimática";
     }
 
-    if (producto === "bioclimatica") {
-      titulo.textContent = "Configura tu Pérgola Bioclimática";
-      descripcion.textContent = "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.";
-
-      if (subjectHidden) {
-        subjectHidden.value = "Nuevo presupuesto - Pérgola Bioclimática";
-      }
-
-      if (colorLamas) colorLamas.style.display = "block";
-      if (tipoLona) tipoLona.style.display = "none";
-      if (lonaBox) lonaBox.style.display = "none";
-      if (accionamientoBox) accionamientoBox.style.display = "none";
-      if (extrasToldos) extrasToldos.style.display = "none";
-      if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
-      if (alturaBox) alturaBox.style.display = "block";
-      if (campoSalida) campoSalida.placeholder = "Largo (mm)";
+    if (colorLamas) colorLamas.style.display = "block";
+    if (tipoLona) tipoLona.style.display = "none";
+    if (lonaBox) lonaBox.style.display = "none";
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (extrasToldos) extrasToldos.style.display = "none";
+    if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+    if (alturaBox) alturaBox.style.display = "block";
+    if (campoSalida) campoSalida.placeholder = "Largo (mm)";
+  } else {
+    if (producto === "concept") {
+      titulo.textContent = "Configura tu Toldo Concept";
+      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Concept";
+    } else if (producto === "smart") {
+      titulo.textContent = "Configura tu Toldo Smart";
+      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Smart";
+    } else if (producto === "cofre") {
+      titulo.textContent = "Configura tu Toldo Cofre";
+      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Cofre";
+    } else if (producto === "vertical") {
+      titulo.textContent = "Configura tu Toldo Vertical";
+      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Vertical";
+    } else if (producto === "veranda") {
+      titulo.textContent = "Configura tu Toldo Veranda";
+      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Veranda";
     } else {
-      if (producto === "concept") {
-        titulo.textContent = "Configura tu Toldo Concept";
-        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Concept";
-      } else if (producto === "smart") {
-        titulo.textContent = "Configura tu Toldo Smart";
-        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Smart";
-      } else if (producto === "cofre") {
-        titulo.textContent = "Configura tu Toldo Cofre";
-        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Cofre";
-      } else if (producto === "vertical") {
-        titulo.textContent = "Configura tu Toldo Vertical";
-        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Vertical";
-      } else if (producto === "veranda") {
-        titulo.textContent = "Configura tu Toldo Veranda";
-        if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Veranda";
-      } else {
-        titulo.textContent = "Configura tu Producto";
+      titulo.textContent = "Configura tu Producto";
+    }
+  }
+
+  // ================= SLIDER FONDO =================
+  const slides = document.querySelectorAll(".budget-bg-slide");
+  let currentSlide = 0;
+
+  if (slides.length > 1) {
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 15000);
+  }
+
+  // ================= EXTRAS MOTOR =================
+  const accionamientoSelect = document.getElementById("accionamiento");
+  const extrasMotor = document.getElementById("extras-motor");
+
+  function actualizarExtras() {
+    if (!accionamientoSelect || !extrasMotor) return;
+
+    if (accionamientoSelect.value === "Manual") {
+      extrasMotor.style.display = "none";
+    } else {
+      extrasMotor.style.display = "flex";
+    }
+  }
+
+  if (accionamientoSelect) {
+    accionamientoSelect.addEventListener("change", actualizarExtras);
+    actualizarExtras();
+  }
+
+  // ================= ENVÍO AJAX A FORMSPREE =================
+  const form = document.getElementById("budget-form");
+  const statusBox = document.getElementById("form-status");
+
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : "";
+
+      if (statusBox) {
+        statusBox.textContent = "Enviando presupuesto...";
       }
-    }
 
-    // ================= SLIDER FONDO =================
-    const slides = document.querySelectorAll(".budget-bg-slide");
-    let currentSlide = 0;
-
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove("active");
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add("active");
-      }, 15000);
-    }
-
-    // ================= EXTRAS MOTOR =================
-    const accionamientoSelect = document.getElementById("accionamiento");
-    const extrasMotor = document.getElementById("extras-motor");
-
-    function actualizarExtras() {
-      if (!accionamientoSelect || !extrasMotor) return;
-
-      if (accionamientoSelect.value === "Manual") {
-        extrasMotor.style.display = "none";
-      } else {
-        extrasMotor.style.display = "flex";
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
       }
-    }
 
-    if (accionamientoSelect) {
-      accionamientoSelect.addEventListener("change", actualizarExtras);
-      actualizarExtras();
-    }
-  </script>
+      try {
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          window.location.href = "gracias.html";
+        } else {
+          if (statusBox) {
+            statusBox.textContent = data.errors
+              ? data.errors.map(error => error.message).join(", ")
+              : "Ha habido un problema al enviar el formulario.";
+          }
+
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        }
+      } catch (error) {
+        if (statusBox) {
+          statusBox.textContent = "Ha habido un problema de conexión. Inténtalo de nuevo.";
+        }
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
