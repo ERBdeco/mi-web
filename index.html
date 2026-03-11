@@ -78,10 +78,14 @@ let interval;
 /* ================= HERO ================= */
 
 const heroImages={
-  pergolas:["images/bioclimatica1.jpeg","images/compact1.jpeg","images/zerro1.jpeg"],
+  pergolas:["images/bioclimatica1.jpeg","images/bioclimatica2.jpeg","images/bioclimatica3.jpeg"],
   toldos:["images/toldocofre.png","images/toldomonobloc.jpg","images/toldocofre1.png"],
   cortinas:["images/cortina1.jpg","images/cortina2.jpg","images/cortina3.jpg"],
-  mosquiteras:["images/mosquitera1.jpg","images/mosquitera2.jpg","images/mosquitera3.jpg"]
+  mosquiteras:[
+    "images/instalaciones/mosquitera-enrrollable1.jpeg",
+    "images/instalaciones/mosquitera-plisada2.jpeg",
+    "images/instalaciones/mosquitera-especial1.jpeg"
+  ]
 };
 
 const slider=document.getElementById("hero-slider");
@@ -174,6 +178,26 @@ const productsData={
       link:"toldos/veranda.html",
       es:{t:"Veranda",d:"Ideal para techos y pérgolas."},
       cat:{t:"Veranda",d:"Ideal per a sostres i pèrgoles."}
+    }
+  ],
+    mosquiteras:[
+    {
+      images:["images/instalaciones/mosquitera-enrrollable1.jpeg"],
+      link:"#",
+      es:{t:"Mosquitera Ventana Autoenrollable",d:"Solución práctica y discreta para ventanas."},
+      cat:{t:"Mosquitera Finestra Autoenrotllable",d:"Solució pràctica i discreta per a finestres."}
+    },
+    {
+      images:["images/instalaciones/mosquitera-plisada2.jpeg"],
+      link:"#",
+      es:{t:"Mosquitera Puerta Corredera",d:"Ideal para accesos de paso frecuente y puertas exteriores."},
+      cat:{t:"Mosquitera Porta Corredissa",d:"Ideal per a accessos de pas freqüent i portes exteriors."}
+    },
+    {
+      images:["images/instalaciones/mosquitera-especial1.jpeg"],
+      link:"#",
+      es:{t:"Mosquitera Forma Especial",d:"Diseñada para huecos con formas especiales o medidas singulares."},
+      cat:{t:"Mosquitera Forma Especial",d:"Dissenyada per a obertures amb formes especials o mides singulars."}
     }
   ]
 };
