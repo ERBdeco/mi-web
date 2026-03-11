@@ -900,6 +900,18 @@ text-align:center;
 }
 
 
+/* ================= LINKS SEO TEXTO ================= */
+
+.tech-header a{
+  color:#d4af37;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.tech-header a:hover{
+  text-decoration:underline;
+}
+
 
 
 
