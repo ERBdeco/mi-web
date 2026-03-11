@@ -387,10 +387,10 @@
   const alturaBox = document.querySelector(".altura-box");
   const campoSalida = document.getElementById("campo-salida");
 
+
   if (productoHidden) {
     productoHidden.value = producto;
   }
-
   if (producto === "bioclimatica") {
     titulo.textContent = "Configura tu Pérgola Bioclimática";
     descripcion.textContent = "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.";
@@ -408,8 +408,38 @@
     if (alturaBox) alturaBox.style.display = "block";
     if (campoSalida) campoSalida.placeholder = "Largo (mm)";
     if(coloresToldos) coloresToldos.style.display="none";
-if(coloresBioclimatica) coloresBioclimatica.style.display="block";
-  } else {
+    if(coloresBioclimatica) coloresBioclimatica.style.display="block";
+  }
+  else if (producto === "compact") {
+
+  titulo.textContent = "Configura tu Pérgola Tensada Compact";
+  descripcion.textContent = "Personaliza tu pérgola Compact y déjanos tus datos para enviarte el presupuesto.";
+
+  if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Pérgola Compact";
+
+  // Colores
+  if (coloresToldos) coloresToldos.style.display = "none";
+  if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
+
+  // Lamas
+  if (colorLamas) colorLamas.style.display = "none";
+
+  // Lona
+  if (tipoLona) tipoLona.style.display = "none"; 
+  if (lonaBox) lonaBox.style.display = "block";  // 👈 SE MUESTRA
+
+  // Accionamiento
+  if (accionamientoBox) accionamientoBox.style.display = "none";
+
+  // Extras
+  if (extrasToldos) extrasToldos.style.display = "none";
+  if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+
+  // Medidas
+  if (alturaBox) alturaBox.style.display = "block";
+  if (campoSalida) campoSalida.placeholder = "Largo (mm)";
+}
+  else {
     if (producto === "concept") {
       titulo.textContent = "Configura tu Toldo Concept";
       if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Concept";
