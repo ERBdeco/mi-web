@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nosotros | ERB Deco</title>
+<meta name="description" content="Conoce ERB Deco, especialistas en pérgolas, toldos, cortinas y mosquiteras para terrazas, jardines y espacios exteriores en Girona y Barcelona.">
+<link rel="canonical" href="https://erbdeco.com/nosotros.html">
+
+<meta property="og:title" content="Nosotros | ERB Deco">
+<meta property="og:description" content="Especialistas en pérgolas, toldos, cortinas y mosquiteras para espacios interiores y exteriores.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://erbdeco.com/nosotros.html">
+<meta property="og:image" content="https://erbdeco.com/images/bioclimatica1.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+.about-hero{
+  padding: 40px 80px 25px 80px;
+}
+
+.about-hero-inner{
+  max-width: 950px;
+}
+
+.about-hero h1{
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  margin-bottom: 16px;
+}
+
+.about-hero p{
+  color: #bbb;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.about-image-section{
+  padding: 10px 80px 20px 80px;
+}
+
+.about-main-image{
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.about-values{
+  padding: 30px 80px 20px 80px;
+}
+
+.about-values-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-value-card{
+  background: #171717;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.about-value-card h3{
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.about-value-card p{
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.about-process{
+  padding: 20px 80px 20px 80px;
+}
+
+.about-process-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-step{
+  background: #171717;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.about-step-number{
+  display: inline-block;
+  margin-bottom: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #d4af37;
+  color: #111;
+  font-weight: 600;
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.about-step h3{
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.about-step p{
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.about-cta{
+  padding: 20px 80px 80px 80px;
+}
+
+.about-cta-box{
+  background: #171717;
+  border-radius: 18px;
+  padding: 36px;
+  text-align: center;
+}
+
+.about-cta-box h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.about-cta-box p{
+  color: #bbb;
+  max-width: 760px;
+  margin: 0 auto 24px auto;
+  line-height: 1.7;
+}
+
+.about-cta-actions{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-outline{
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  border-radius: 30px;
+  transition: 0.3s ease;
+}
+
+.btn-outline:hover{
+  background: #d4af37;
+  color: #111;
+}
+
+@media (max-width: 900px){
+
+  .about-hero,
+  .about-image-section,
+  .about-values,
+  .about-process,
+  .about-cta{
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .about-hero h1{
+    font-size: 34px;
+  }
+
+  .about-main-image{
+    height: 300px;
+  }
+
+  .about-values-grid,
+  .about-process-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .about-cta-box{
+    padding: 24px;
+    text-align: left;
+  }
+
+  .about-cta-box h2{
+    font-size: 28px;
+  }
+
+  .about-cta-box p{
+    margin: 0 0 24px 0;
+  }
+
+  .about-cta-actions{
+    justify-content: flex-start;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/ERBlogosinfondo.png" alt="ERB Deco">
+    </a>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="galeria.html">Galería</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</header>
+
+<div class="menu-overlay"></div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="about-hero">
+  <div class="about-hero-inner">
+    <h1>Sobre ERB Deco</h1>
+    <p>
+      En ERB Deco trabajamos soluciones pensadas para mejorar la estética, la funcionalidad y el confort de cada espacio. Nos especializamos en pérgolas, toldos, cortinas y mosquiteras, combinando diseño, instalación cuidada y atención personalizada en cada proyecto.
+    </p>
+  </div>
+</section>
+
+
+<!-- ================= IMAGEN ================= -->
+
+<section class="about-image-section">
+  <img src="images/bioclimatica1.jpeg" alt="Instalación exterior realizada por ERB Deco" class="about-main-image">
+</section>
+
+
+<!-- ================= QUIÉNES SOMOS ================= -->
+
+<section class="tech-page">
+
+  <div class="tech-header">
+
+    <h2>Diseño, instalación y detalle</h2>
+
+    <p>
+      Entendemos cada proyecto como una combinación entre estética, uso real del espacio y calidad de instalación. Nuestro objetivo es ofrecer soluciones que no solo funcionen bien, sino que además se integren con naturalidad en la vivienda o en el entorno exterior.
+    </p>
+
+    <p>
+      Trabajamos tanto espacios exteriores como interiores, adaptando cada propuesta a las necesidades del cliente y a las características concretas del lugar.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUÉ NOS DIFERENCIA ================= -->
+
+<section class="about-values">
+
+  <div class="tech-header">
+    <h2>Qué nos diferencia</h2>
+  </div>
+
+  <div class="about-values-grid">
+
+    <div class="about-value-card">
+      <h3>Asesoramiento personalizado</h3>
+      <p>
+        Cada espacio es distinto. Por eso proponemos soluciones adaptadas a las medidas, al uso y al estilo de cada proyecto.
+      </p>
+    </div>
+
+    <div class="about-value-card">
+      <h3>Instalación cuidada</h3>
+      <p>
+        Damos importancia tanto al resultado técnico como al acabado final, buscando siempre una integración limpia y bien resuelta.
+      </p>
+    </div>
+
+    <div class="about-value-card">
+      <h3>Diseño y funcionalidad</h3>
+      <p>
+        Trabajamos soluciones que aportan confort y protección, sin renunciar a una estética elegante y actual.
+      </p>
+    </div>
+
+    <div class="about-value-card">
+      <h3>Calidad en cada detalle</h3>
+      <p>
+        Materiales, sistemas de accionamiento, iluminación y configuraciones pensadas para ofrecer una solución duradera y cómoda.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CÓMO TRABAJAMOS ================= -->
+
+<section class="about-process">
+
+  <div class="tech-header">
+    <h2>Cómo trabajamos</h2>
+  </div>
+
+  <div class="about-process-grid">
+
+    <div class="about-step">
+      <div class="about-step-number">1</div>
+      <h3>Escuchamos</h3>
+      <p>
+        Partimos de lo que necesitas, del espacio disponible y del resultado que quieres conseguir.
+      </p>
+    </div>
+
+    <div class="about-step">
+      <div class="about-step-number">2</div>
+      <h3>Estudiamos</h3>
+      <p>
+        Valoramos medidas, orientación, estructura y opciones para encontrar la solución más adecuada.
+      </p>
+    </div>
+
+    <div class="about-step">
+      <div class="about-step-number">3</div>
+      <h3>Proponemos</h3>
+      <p>
+        Te orientamos con una propuesta clara, funcional y coherente con la estética del espacio.
+      </p>
+    </div>
+
+    <div class="about-step">
+      <div class="about-step-number">4</div>
+      <h3>Instalamos</h3>
+      <p>
+        Ejecutamos la instalación buscando un resultado limpio, duradero y bien integrado en el entorno.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ZONAS ================= -->
+
+<section class="tech-page">
+
+  <div class="tech-header">
+
+    <h2>Zonas de trabajo</h2>
+
+    <p>
+      Trabajamos proyectos en Girona y provincia, Barcelona y provincia, La Selva y Vallès Oriental, adaptando cada instalación a las características del espacio y al tipo de solución elegida.
+    </p>
+
+    <p>
+      Realizamos propuestas para terrazas, jardines, porches, patios, áticos y espacios interiores, con un enfoque práctico, cuidado y personalizado.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA FINAL ================= -->
+
+<section class="about-cta">
+  <div class="about-cta-box">
+    <h2>Cuéntanos tu proyecto</h2>
+    <p>
+      Si estás valorando instalar una pérgola, un toldo, cortinas o mosquiteras, estaremos encantados de ayudarte a encontrar la mejor solución para tu espacio.
+    </p>
+
+    <div class="about-cta-actions">
+      <a href="contacto.html" class="btn-dark">Contactar</a>
+      <a href="presupuesto.html" class="btn-outline">Solicitar presupuesto</a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const overlay = document.querySelector(".menu-overlay");
+
+if (menuToggle && navLinks && overlay) {
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+}
+</script>
+
+</body>
+</html>
