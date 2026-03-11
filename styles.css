@@ -288,6 +288,9 @@ a {
 
 .tech-header {
   margin-bottom: 40px;
+  max-width:900px;
+margin:0;
+text-align:left;
 }
 
 .tech-header h1 {
@@ -1013,7 +1016,14 @@ margin-left:0;
 .product-detail{
 padding:40px 25px;
 }
+.detail-grid{
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
+.detail-card{
+  min-width: 0;
+}
 
 
 }
