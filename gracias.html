@@ -13,7 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- ================= clics google business ================= -->
- <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,13 +33,16 @@
 </a>
 </div>
 
-<nav class="nav-links">
-<a href="index.html">Inicio</a>
-<a href="#">Servicios</a>
-<a href="#">Galería</a>
-<a href="#">Nosotros</a>
-<a href="#">Contacto</a>
+<nav class="nav-links" id="nav-links">
+<a href="index.html" data-translate="nav_inicio">Inicio</a>
+<a href="galeria.html" data-translate="nav_galeria">Galería</a>
+<a href="nosotros.html" data-translate="nav_nosotros">Nosotros</a>
+<a href="contacto.html" data-translate="nav_contacto">Contacto</a>
 </nav>
+
+<div class="menu-toggle" id="menu-toggle">
+<span></span><span></span><span></span>
+</div>
 
 </header>
 
@@ -50,17 +52,17 @@
 
 <div class="budget-container" style="text-align:center; max-width:700px;">
 
-<h1>¡Gracias por tu solicitud!</h1>
+<h1 data-translate="thanks_title">¡Gracias por tu solicitud!</h1>
 
-<p style="margin-top:20px; font-size:18px;">
+<p style="margin-top:20px; font-size:18px;" data-translate="thanks_text_1">
 Hemos recibido tu solicitud de presupuesto correctamente.
 </p>
 
-<p style="margin-top:10px; color:#666;">
+<p style="margin-top:10px; color:#666;" data-translate="thanks_text_2">
 Nuestro equipo revisará tu configuración y te contactaremos lo antes posible.
 </p>
 
-<a href="index.html" class="btn-dark" style="margin-top:40px; display:inline-block;">
+<a href="index.html" class="btn-dark" style="margin-top:40px; display:inline-block;" data-translate="thanks_button">
 Volver a la página principal
 </a>
 
@@ -68,5 +70,86 @@ Volver a la página principal
 
 </section>
 
+<div class="language-switch">
+  <button id="btn-es" class="active">ES</button>
+  <button id="btn-cat">CAT</button>
+</div>
+
+<script>
+let currentLanguage = "es";
+
+const translations = {
+  es: {
+    nav_inicio: "Inicio",
+    nav_galeria: "Galería",
+    nav_nosotros: "Nosotros",
+    nav_contacto: "Contacto",
+
+    thanks_title: "¡Gracias por tu solicitud!",
+    thanks_text_1: "Hemos recibido tu solicitud de presupuesto correctamente.",
+    thanks_text_2: "Nuestro equipo revisará tu configuración y te contactaremos lo antes posible.",
+    thanks_button: "Volver a la página principal"
+  },
+
+  cat: {
+    nav_inicio: "Inici",
+    nav_galeria: "Galeria",
+    nav_nosotros: "Nosaltres",
+    nav_contacto: "Contacte",
+
+    thanks_title: "Gràcies per la teva sol·licitud!",
+    thanks_text_1: "Hem rebut correctament la teva sol·licitud de pressupost.",
+    thanks_text_2: "El nostre equip revisarà la teva configuració i et contactarem al més aviat possible.",
+    thanks_button: "Tornar a la pàgina principal"
+  }
+};
+
+function translatePage(lang){
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.dataset.translate;
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  document.documentElement.lang = lang === "cat" ? "ca" : "es";
+}
+
+function setLanguage(lang){
+  currentLanguage = lang;
+  localStorage.setItem("siteLanguage", lang);
+
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+
+  translatePage(lang);
+}
+
+document.getElementById("btn-es").onclick = () => {
+  setLanguage("es");
+};
+
+document.getElementById("btn-cat").onclick = () => {
+  setLanguage("cat");
+};
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+}
+
+const savedLanguage = localStorage.getItem("siteLanguage");
+
+if(savedLanguage === "cat" || savedLanguage === "es"){
+  setLanguage(savedLanguage);
+} else {
+  setLanguage("es");
+}
+</script>
+
 </body>
-</html> 
+</html>

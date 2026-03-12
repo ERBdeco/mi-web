@@ -174,13 +174,11 @@
 </style>
 
 <!-- ================= clics google business ================= -->
- <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17967606627');
 </script>
 </head>
@@ -195,11 +193,10 @@
   </div>
 
   <nav class="nav-links" id="nav-links">
-    <a href="index.html">Inicio</a>
-    <a href="#">Servicios</a>
-    <a href="galeria.html">Galería</a>
-    <a href="#">Nosotros</a>
-    <a href="contacto.html">Contacto</a>
+    <a href="index.html" data-translate="nav_inicio">Inicio</a>
+    <a href="galeria.html" data-translate="nav_galeria">Galería</a>
+    <a href="nosotros.html" data-translate="nav_nosotros">Nosotros</a>
+    <a href="contacto.html" data-translate="nav_contacto">Contacto</a>
   </nav>
 
   <div class="menu-toggle" id="menu-toggle">
@@ -208,8 +205,8 @@
 </header>
 
 <section class="contact-hero">
-  <h1>Contacto</h1>
-  <p>
+  <h1 data-translate="contact_title">Contacto</h1>
+  <p data-translate="contact_intro">
     Cuéntanos qué necesitas y te ayudaremos a encontrar la mejor solución para tu espacio.
     Pérgolas, toldos, cortinas, mosquiteras y proyectos a medida.
   </p>
@@ -219,75 +216,74 @@
   <div class="contact-grid">
 
     <div class="contact-card">
-      <h2>Hablemos</h2>
-      <p>
+      <h2 data-translate="talk_title">Hablemos</h2>
+      <p data-translate="talk_text">
         Ponte en contacto con nosotros para resolver dudas, pedir información o solicitar
         un presupuesto personalizado.
       </p>
 
       <div class="contact-list">
         <div class="contact-item">
-          <strong>Teléfono</strong>
+          <strong data-translate="phone_label">Teléfono</strong>
           <span>+34 635 339 777</span>
         </div>
 
         <div class="contact-item">
-          <strong>Zona de trabajo</strong>
-          <span>Barcelona y Girona</span>
+          <strong data-translate="zone_label">Zona de trabajo</strong>
+          <span data-translate="zone_value">Barcelona y Girona</span>
         </div>
 
         <div class="contact-item">
-          <strong>Horario</strong>
-          <span>De lunes a viernes · 9:00 a 18:00</span>
+          <strong data-translate="schedule_label">Horario</strong>
+          <span data-translate="schedule_value">De lunes a viernes · 9:00 a 18:00</span>
         </div>
       </div>
 
       <div class="contact-actions">
-        <a href="https://wa.me/34635339777" class="btn-dark" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://wa.me/34635339777" class="btn-dark" target="_blank" rel="noopener noreferrer" data-translate="whatsapp_btn">WhatsApp</a>
       </div>
     </div>
 
     <div class="contact-card">
-      <h2>Escríbenos</h2>
+      <h2 data-translate="write_title">Escríbenos</h2>
 
       <form class="contact-form" id="contact-form" action="https://formspree.io/f/mreyplzg" method="POST">
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde Contacto - ERB Deco">
-        <input type="hidden" name="_language" value="es">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde Contacto - ERB Deco" id="subject-hidden">
+        <input type="hidden" name="_language" value="es" id="language-hidden">
         <input type="hidden" name="origen" value="contacto">
 
         <div class="form-group">
-          <label>Nombre</label>
+          <label data-translate="label_name">Nombre</label>
           <input type="text" name="nombre" required>
         </div>
 
         <div class="form-group">
-          <label>Teléfono</label>
+          <label data-translate="label_phone">Teléfono</label>
           <input type="tel" name="telefono">
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label data-translate="label_email">Email</label>
           <input type="email" name="email" required>
         </div>
 
         <div class="form-group">
-          <label>Tipo de consulta</label>
-          <select name="tipo_consulta">
-            <option value="Informacion general">Informacion General
-            </option>
-            <option value="Pérgolas">Pérgolas</option>
-            <option value="Toldos">Toldos</option>
-            <option value="Cortinas">Cortinas</option>
-            <option value="Mosquiteras">Mosquiteras</option>
+          <label data-translate="label_type">Tipo de consulta</label>
+          <select name="tipo_consulta" id="tipo-consulta">
+            <option value="Informacion general" data-translate="option_general">Informacion General</option>
+            <option value="Pérgolas" data-translate="option_pergolas">Pérgolas</option>
+            <option value="Toldos" data-translate="option_toldos">Toldos</option>
+            <option value="Cortinas" data-translate="option_cortinas">Cortinas</option>
+            <option value="Mosquiteras" data-translate="option_mosquiteras">Mosquiteras</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Mensaje</label>
-          <textarea name="mensaje" required placeholder="Cuéntanos qué necesitas..."></textarea>
+          <label data-translate="label_message">Mensaje</label>
+          <textarea name="mensaje" required placeholder="Cuéntanos qué necesitas..." id="mensaje-textarea"></textarea>
         </div>
 
-        <button type="submit" class="btn-dark">Enviar mensaje</button>
+        <button type="submit" class="btn-dark" id="submit-button" data-translate="send_btn">Enviar mensaje</button>
         <div id="contact-status"></div>
       </form>
     </div>
@@ -295,7 +291,147 @@
   </div>
 </section>
 
+<div class="language-switch">
+  <button id="btn-es" class="active">ES</button>
+  <button id="btn-cat">CAT</button>
+</div>
+
 <script>
+let currentLanguage = "es";
+
+const translations = {
+  es: {
+    nav_inicio: "Inicio",
+    nav_galeria: "Galería",
+    nav_nosotros: "Nosotros",
+    nav_contacto: "Contacto",
+
+    contact_title: "Contacto",
+    contact_intro: "Cuéntanos qué necesitas y te ayudaremos a encontrar la mejor solución para tu espacio. Pérgolas, toldos, cortinas, mosquiteras y proyectos a medida.",
+
+    talk_title: "Hablemos",
+    talk_text: "Ponte en contacto con nosotros para resolver dudas, pedir información o solicitar un presupuesto personalizado.",
+
+    phone_label: "Teléfono",
+    zone_label: "Zona de trabajo",
+    zone_value: "Barcelona y Girona",
+    schedule_label: "Horario",
+    schedule_value: "De lunes a viernes · 9:00 a 18:00",
+    whatsapp_btn: "WhatsApp",
+
+    write_title: "Escríbenos",
+    label_name: "Nombre",
+    label_phone: "Teléfono",
+    label_email: "Email",
+    label_type: "Tipo de consulta",
+    label_message: "Mensaje",
+
+    option_general: "Informacion General",
+    option_pergolas: "Pérgolas",
+    option_toldos: "Toldos",
+    option_cortinas: "Cortinas",
+    option_mosquiteras: "Mosquiteras",
+
+    message_placeholder: "Cuéntanos qué necesitas...",
+    send_btn: "Enviar mensaje",
+
+    sending_message: "Enviando mensaje...",
+    sending_button: "Enviando...",
+    error_message: "Ha habido un problema al enviar el mensaje.",
+    connection_error: "Ha habido un problema de conexión. Inténtalo de nuevo."
+  },
+
+  cat: {
+    nav_inicio: "Inici",
+    nav_galeria: "Galeria",
+    nav_nosotros: "Nosaltres",
+    nav_contacto: "Contacte",
+
+    contact_title: "Contacte",
+    contact_intro: "Explica'ns què necessites i t'ajudarem a trobar la millor solució per al teu espai. Pèrgoles, tendals, cortines, mosquiteres i projectes a mida.",
+
+    talk_title: "Parlem",
+    talk_text: "Posa't en contacte amb nosaltres per resoldre dubtes, demanar informació o sol·licitar un pressupost personalitzat.",
+
+    phone_label: "Telèfon",
+    zone_label: "Zona de treball",
+    zone_value: "Barcelona i Girona",
+    schedule_label: "Horari",
+    schedule_value: "De dilluns a divendres · 9:00 a 18:00",
+    whatsapp_btn: "WhatsApp",
+
+    write_title: "Escriu-nos",
+    label_name: "Nom",
+    label_phone: "Telèfon",
+    label_email: "Email",
+    label_type: "Tipus de consulta",
+    label_message: "Missatge",
+
+    option_general: "Informació General",
+    option_pergolas: "Pèrgoles",
+    option_toldos: "Tendals",
+    option_cortinas: "Cortines",
+    option_mosquiteras: "Mosquiteres",
+
+    message_placeholder: "Explica'ns què necessites...",
+    send_btn: "Enviar missatge",
+
+    sending_message: "Enviant missatge...",
+    sending_button: "Enviant...",
+    error_message: "Hi ha hagut un problema en enviar el missatge.",
+    connection_error: "Hi ha hagut un problema de connexió. Torna-ho a provar."
+  }
+};
+
+function translatePage(lang){
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.dataset.translate;
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  const textarea = document.getElementById("mensaje-textarea");
+  if (textarea) {
+    textarea.placeholder = translations[lang].message_placeholder;
+  }
+
+  const languageHidden = document.getElementById("language-hidden");
+  if (languageHidden) {
+    languageHidden.value = lang;
+  }
+
+  const subjectHidden = document.getElementById("subject-hidden");
+  if (subjectHidden) {
+    subjectHidden.value = lang === "cat"
+      ? "Nou missatge des de Contacte - ERB Deco"
+      : "Nuevo mensaje desde Contacto - ERB Deco";
+  }
+
+  const htmlTag = document.documentElement;
+  if (htmlTag) {
+    htmlTag.lang = lang === "cat" ? "ca" : "es";
+  }
+}
+
+function setLanguage(lang){
+  currentLanguage = lang;
+  localStorage.setItem("siteLanguage", lang);
+
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+
+  translatePage(lang);
+}
+
+document.getElementById("btn-es").onclick = () => {
+  setLanguage("es");
+};
+
+document.getElementById("btn-cat").onclick = () => {
+  setLanguage("cat");
+};
+
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
@@ -313,14 +449,14 @@ if (contactForm) {
     event.preventDefault();
 
     const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
+    const originalText = translations[currentLanguage].send_btn;
 
     if (contactStatus) {
-      contactStatus.textContent = "Enviando mensaje...";
+      contactStatus.textContent = translations[currentLanguage].sending_message;
     }
 
     submitButton.disabled = true;
-    submitButton.textContent = "Enviando...";
+    submitButton.textContent = translations[currentLanguage].sending_button;
 
     try {
       const formData = new FormData(contactForm);
@@ -341,7 +477,7 @@ if (contactForm) {
         if (contactStatus) {
           contactStatus.textContent = data.errors
             ? data.errors.map(error => error.message).join(", ")
-            : "Ha habido un problema al enviar el mensaje.";
+            : translations[currentLanguage].error_message;
         }
         submitButton.disabled = false;
         submitButton.textContent = originalText;
@@ -349,12 +485,20 @@ if (contactForm) {
 
     } catch (error) {
       if (contactStatus) {
-        contactStatus.textContent = "Ha habido un problema de conexión. Inténtalo de nuevo.";
+        contactStatus.textContent = translations[currentLanguage].connection_error;
       }
       submitButton.disabled = false;
       submitButton.textContent = originalText;
     }
   });
+}
+
+const savedLanguage = localStorage.getItem("siteLanguage");
+
+if(savedLanguage === "cat" || savedLanguage === "es"){
+  setLanguage(savedLanguage);
+} else {
+  setLanguage("es");
 }
 </script>
 

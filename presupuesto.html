@@ -10,13 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   
   <!-- ================= clics google business ================= -->
- <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17967606627');
 </script>
 </head>
@@ -30,13 +28,16 @@
       </a>
     </div>
 
-    <nav class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="#">Servicios</a>
-      <a href="#">Galería</a>
-      <a href="#">Nosotros</a>
-      <a href="#">Contacto</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" data-translate="nav_inicio">Inicio</a>
+      <a href="galeria.html" data-translate="nav_galeria">Galería</a>
+      <a href="nosotros.html" data-translate="nav_nosotros">Nosotros</a>
+      <a href="contacto.html" data-translate="nav_contacto">Contacto</a>
     </nav>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
   </header>
 
   <!-- FONDO SLIDER -->
@@ -59,12 +60,12 @@
       <form class="budget-form" id="budget-form" action="https://formspree.io/f/mreyplzg" method="POST">
         
         <input type="hidden" name="_subject" id="subject-hidden" value="Nuevo presupuesto desde ERB Deco">
-        <input type="hidden" name="_language" value="es">
+        <input type="hidden" name="_language" id="language-hidden" value="es">
         <input type="hidden" name="producto" id="producto-hidden">
 
 <!-- COLOR ESTRUCTURA TOLDOS -->
 <div class="form-group colores-toldos">
-  <label>Color de la estructura</label>
+  <label data-translate="label_color_estructura">Color de la estructura</label>
 
   <div class="color-selector">
     <label>
@@ -151,7 +152,7 @@
 
 <!-- COLOR ESTRUCTURA BIOCLIMATICA -->
 <div class="form-group colores-bioclimatica" style="display:none;">
-  <label>Color de la estructura</label>
+  <label data-translate="label_color_estructura">Color de la estructura</label>
 
   <div class="color-selector">
     <label>
@@ -203,7 +204,7 @@
 
 <!-- COLOR LAMAS -->
 <div class="form-group color-lamas" style="display:none;">
-  <label>Color de las lamas</label>
+  <label data-translate="label_color_lamas">Color de las lamas</label>
 
   <div class="color-selector">
     <label>
@@ -230,30 +231,30 @@
 
         <!-- TIPO LONA -->
         <div class="form-group tipo-lona">
-          <label>Tipo de lona</label>
-          <select name="tipo_lona">
-            <option value="Acrilica">Acrílica</option>
-            <option value="Acrilica Resinada">Acrílica Resinada</option>
-            <option value="Perforada">Perforada</option>
+          <label data-translate="label_tipo_lona">Tipo de lona</label>
+          <select name="tipo_lona" id="tipo-lona-select">
+            <option value="Acrilica" data-translate="opt_acrilica">Acrílica</option>
+            <option value="Acrilica Resinada" data-translate="opt_acrilica_resinada">Acrílica Resinada</option>
+            <option value="Perforada" data-translate="opt_perforada">Perforada</option>
           </select>
         </div>
 
         <!-- COLOR LONA -->
         <div class="form-group lona-box">
-          <label>Color de la lona</label>
+          <label data-translate="label_color_lona">Color de la lona</label>
           <div class="lona-box-inner">
-            <input type="text" name="color_lona" placeholder="Escribe el color de la lona...">
+            <input type="text" name="color_lona" id="input-color-lona" placeholder="Escribe el color de la lona...">
           </div>
-          <a href="#" class="lona-link">Colores de lona</a>
+          <a href="#" class="lona-link" data-translate="link_colores_lona">Colores de lona</a>
         </div>
 
         <!-- MEDIDAS -->
         <div class="form-group medidas-box">
-          <label>Medidas</label>
+          <label data-translate="label_medidas">Medidas</label>
 
           <div class="medidas-grid">
             <div class="medida-item">
-              <input type="number" name="ancho" placeholder="Ancho (mm)">
+              <input type="number" name="ancho" id="input-ancho" placeholder="Ancho (mm)">
             </div>
 
             <div class="medida-item">
@@ -261,54 +262,54 @@
             </div>
 
             <div class="medida-item altura-box" style="display:none;">
-              <input type="number" name="altura" placeholder="Altura (mm)">
+              <input type="number" name="altura" id="input-altura" placeholder="Altura (mm)">
             </div>
           </div>
         </div>
 
         <!-- ACCIONAMIENTO -->
         <div class="form-group accionamiento-box">
-          <label>Accionamiento</label>
+          <label data-translate="label_accionamiento">Accionamiento</label>
           <select name="accionamiento" id="accionamiento">
-            <option value="Manual">Manual</option>
-            <option value="Motorizado">Motorizado</option>
+            <option value="Manual" data-translate="opt_manual">Manual</option>
+            <option value="Motorizado" data-translate="opt_motorizado">Motorizado</option>
           </select>
         </div>
 
         <!-- EXTRAS TOLDOS -->
         <div class="form-group extras-toldos">
-          <label>Extras disponibles</label>
+          <label data-translate="label_extras_disponibles">Extras disponibles</label>
 
           <div class="extras-box">
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Sombrex">
-              <span>Sombrex</span>
+              <span data-translate="extra_sombrex">Sombrex</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Triángulo lateral">
-              <span>Triángulo lateral</span>
+              <span data-translate="extra_triangulo">Triángulo lateral</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Iluminación LED">
-              <span>Iluminación LED</span>
+              <span data-translate="extra_led">Iluminación LED</span>
             </label>
 
             <div id="extras-motor">
               <label class="extra-item">
                 <input type="checkbox" name="extras[]" value="Detector de viento">
-                <span>Detector de viento</span>
+                <span data-translate="extra_detector_viento">Detector de viento</span>
               </label>
 
               <label class="extra-item">
                 <input type="checkbox" name="extras[]" value="Detector de sol">
-                <span>Detector de sol</span>
+                <span data-translate="extra_detector_sol">Detector de sol</span>
               </label>
 
               <label class="extra-item">
                 <input type="checkbox" name="extras[]" value="Control remoto móvil">
-                <span>Control remoto móvil</span>
+                <span data-translate="extra_control_movil">Control remoto móvil</span>
               </label>
             </div>
           </div>
@@ -316,57 +317,310 @@
 
         <!-- EXTRAS BIOCLIMATICA -->
         <div class="form-group extras-bioclimatica" style="display:none;">
-          <label>Opciones de la pérgola</label>
+          <label data-translate="label_opciones_pergola">Opciones de la pérgola</label>
 
           <div class="extras-box">
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="LED integrado">
-              <span>Iluminación LED</span>
+              <span data-translate="extra_led_integrado">Iluminación LED</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="ZIP vertical">
-              <span>Toldo ZIP</span>
+              <span data-translate="extra_zip">Toldo ZIP</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Calefacción">
-              <span>Calefacción</span>
+              <span data-translate="extra_calefaccion">Calefacción</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Sensor lluvia">
-              <span>Sensor lluvia</span>
+              <span data-translate="extra_sensor_lluvia">Sensor lluvia</span>
             </label>
 
             <label class="extra-item">
               <input type="checkbox" name="extras[]" value="Sensor viento">
-              <span>Sensor viento</span>
+              <span data-translate="extra_sensor_viento">Sensor viento</span>
             </label>
           </div>
         </div>
 
         <!-- DATOS CLIENTE -->
         <div class="form-group">
-          <label>Nombre</label>
+          <label data-translate="label_nombre">Nombre</label>
           <input type="text" name="nombre" required>
         </div>
 
         <div class="form-group">
-          <label>Teléfono</label>
+          <label data-translate="label_telefono">Teléfono</label>
           <input type="tel" name="telefono" required>
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label data-translate="label_email">Email</label>
           <input type="email" name="email" required>
         </div>
+
         <div id="form-status" style="margin-top:15px; color:#d4af37; font-size:14px;"></div>
-        <button type="submit" class="btn-dark">Solicitar Presupuesto</button>
+        <button type="submit" class="btn-dark" id="submit-button" data-translate="btn_solicitar">Solicitar Presupuesto</button>
       </form>
     </div>
   </section>
+
+  <div class="language-switch">
+    <button id="btn-es" class="active">ES</button>
+    <button id="btn-cat">CAT</button>
+  </div>
+
 <script>
+  let currentLanguage = "es";
+
+  const translations = {
+    es: {
+      nav_inicio: "Inicio",
+      nav_galeria: "Galería",
+      nav_nosotros: "Nosotros",
+      nav_contacto: "Contacto",
+
+      default_title: "Configura tu Producto",
+      default_desc: "Personaliza tu producto y déjanos tus datos para enviarte el presupuesto.",
+
+      bio_title: "Configura tu Pérgola Bioclimática",
+      bio_desc: "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.",
+
+      compact_title: "Configura tu Pérgola Tensada Compact",
+      compact_desc: "Personaliza tu pérgola Compact y déjanos tus datos para enviarte el presupuesto.",
+
+      concept_title: "Configura tu Toldo Concept",
+      smart_title: "Configura tu Toldo Smart",
+      cofre_title: "Configura tu Toldo Cofre",
+      vertical_title: "Configura tu Toldo Vertical",
+      veranda_title: "Configura tu Toldo Veranda",
+
+      label_color_estructura: "Color de la estructura",
+      label_color_lamas: "Color de las lamas",
+      label_tipo_lona: "Tipo de lona",
+      label_color_lona: "Color de la lona",
+      link_colores_lona: "Colores de lona",
+      label_medidas: "Medidas",
+      label_accionamiento: "Accionamiento",
+      label_extras_disponibles: "Extras disponibles",
+      label_opciones_pergola: "Opciones de la pérgola",
+      label_nombre: "Nombre",
+      label_telefono: "Teléfono",
+      label_email: "Email",
+
+      opt_acrilica: "Acrílica",
+      opt_acrilica_resinada: "Acrílica Resinada",
+      opt_perforada: "Perforada",
+      opt_manual: "Manual",
+      opt_motorizado: "Motorizado",
+
+      extra_sombrex: "Sombrex",
+      extra_triangulo: "Triángulo lateral",
+      extra_led: "Iluminación LED",
+      extra_detector_viento: "Detector de viento",
+      extra_detector_sol: "Detector de sol",
+      extra_control_movil: "Control remoto móvil",
+
+      extra_led_integrado: "Iluminación LED",
+      extra_zip: "Toldo ZIP",
+      extra_calefaccion: "Calefacción",
+      extra_sensor_lluvia: "Sensor lluvia",
+      extra_sensor_viento: "Sensor viento",
+
+      btn_solicitar: "Solicitar Presupuesto",
+
+      placeholder_color_lona: "Escribe el color de la lona...",
+      placeholder_ancho: "Ancho (mm)",
+      placeholder_salida: "Salida (mm)",
+      placeholder_largo: "Largo (mm)",
+      placeholder_altura: "Altura (mm)",
+
+      sending_budget: "Enviando presupuesto...",
+      sending_button: "Enviando...",
+      submit_error: "Ha habido un problema al enviar el formulario.",
+      connection_error: "Ha habido un problema de conexión. Inténtalo de nuevo."
+    },
+
+    cat: {
+      nav_inicio: "Inici",
+      nav_galeria: "Galeria",
+      nav_nosotros: "Nosaltres",
+      nav_contacto: "Contacte",
+
+      default_title: "Configura el teu Producte",
+      default_desc: "Personalitza el teu producte i deixa'ns les teves dades per enviar-te el pressupost.",
+
+      bio_title: "Configura la teva Pèrgola Bioclimàtica",
+      bio_desc: "Personalitza la teva pèrgola bioclimàtica i deixa'ns les teves dades per enviar-te el pressupost.",
+
+      compact_title: "Configura la teva Pèrgola Tensada Compact",
+      compact_desc: "Personalitza la teva pèrgola Compact i deixa'ns les teves dades per enviar-te el pressupost.",
+
+      concept_title: "Configura el teu Tendal Concept",
+      smart_title: "Configura el teu Tendal Smart",
+      cofre_title: "Configura el teu Tendal Cofre",
+      vertical_title: "Configura el teu Tendal Vertical",
+      veranda_title: "Configura el teu Tendal Veranda",
+
+      label_color_estructura: "Color de l'estructura",
+      label_color_lamas: "Color de les lames",
+      label_tipo_lona: "Tipus de lona",
+      label_color_lona: "Color de la lona",
+      link_colores_lona: "Colors de lona",
+      label_medidas: "Mides",
+      label_accionamiento: "Accionament",
+      label_extras_disponibles: "Extres disponibles",
+      label_opciones_pergola: "Opcions de la pèrgola",
+      label_nombre: "Nom",
+      label_telefono: "Telèfon",
+      label_email: "Email",
+
+      opt_acrilica: "Acrílica",
+      opt_acrilica_resinada: "Acrílica resinada",
+      opt_perforada: "Perforada",
+      opt_manual: "Manual",
+      opt_motorizado: "Motoritzat",
+
+      extra_sombrex: "Sombrex",
+      extra_triangulo: "Triangle lateral",
+      extra_led: "Il·luminació LED",
+      extra_detector_viento: "Detector de vent",
+      extra_detector_sol: "Detector de sol",
+      extra_control_movil: "Control remot mòbil",
+
+      extra_led_integrado: "Il·luminació LED",
+      extra_zip: "Tendal ZIP",
+      extra_calefaccion: "Calefacció",
+      extra_sensor_lluvia: "Sensor de pluja",
+      extra_sensor_viento: "Sensor de vent",
+
+      btn_solicitar: "Sol·licitar Pressupost",
+
+      placeholder_color_lona: "Escriu el color de la lona...",
+      placeholder_ancho: "Amplada (mm)",
+      placeholder_salida: "Sortida (mm)",
+      placeholder_largo: "Llarg (mm)",
+      placeholder_altura: "Alçada (mm)",
+
+      sending_budget: "Enviant pressupost...",
+      sending_button: "Enviant...",
+      submit_error: "Hi ha hagut un problema en enviar el formulari.",
+      connection_error: "Hi ha hagut un problema de connexió. Torna-ho a provar."
+    }
+  };
+
+  function updatePlaceholders() {
+    const t = translations[currentLanguage];
+    const inputColorLona = document.getElementById("input-color-lona");
+    const inputAncho = document.getElementById("input-ancho");
+    const inputAltura = document.getElementById("input-altura");
+
+    if (inputColorLona) inputColorLona.placeholder = t.placeholder_color_lona;
+    if (inputAncho) inputAncho.placeholder = t.placeholder_ancho;
+    if (inputAltura) inputAltura.placeholder = t.placeholder_altura;
+
+    if (campoSalida) {
+      if (producto === "bioclimatica" || producto === "compact") {
+        campoSalida.placeholder = t.placeholder_largo;
+      } else {
+        campoSalida.placeholder = t.placeholder_salida;
+      }
+    }
+  }
+
+  function updateDynamicTexts() {
+    const t = translations[currentLanguage];
+
+    if (producto === "bioclimatica") {
+      titulo.textContent = t.bio_title;
+      descripcion.textContent = t.bio_desc;
+    } else if (producto === "compact") {
+      titulo.textContent = t.compact_title;
+      descripcion.textContent = t.compact_desc;
+    } else if (producto === "concept") {
+      titulo.textContent = t.concept_title;
+      descripcion.textContent = t.default_desc;
+    } else if (producto === "smart") {
+      titulo.textContent = t.smart_title;
+      descripcion.textContent = t.default_desc;
+    } else if (producto === "cofre") {
+      titulo.textContent = t.cofre_title;
+      descripcion.textContent = t.default_desc;
+    } else if (producto === "vertical") {
+      titulo.textContent = t.vertical_title;
+      descripcion.textContent = t.default_desc;
+    } else if (producto === "veranda") {
+      titulo.textContent = t.veranda_title;
+      descripcion.textContent = t.default_desc;
+    } else {
+      titulo.textContent = t.default_title;
+      descripcion.textContent = t.default_desc;
+    }
+  }
+
+  function translatePage(lang){
+    document.querySelectorAll("[data-translate]").forEach(el => {
+      const key = el.dataset.translate;
+      if (translations[lang] && translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+
+    updateDynamicTexts();
+    updatePlaceholders();
+
+    const languageHidden = document.getElementById("language-hidden");
+    if (languageHidden) {
+      languageHidden.value = lang;
+    }
+
+    const subjectMap = {
+      es: {
+        default: "Nuevo presupuesto desde ERB Deco",
+        bioclimatica: "Nuevo presupuesto - Pérgola Bioclimática",
+        compact: "Nuevo presupuesto - Pérgola Compact",
+        concept: "Nuevo presupuesto - Toldo Concept",
+        smart: "Nuevo presupuesto - Toldo Smart",
+        cofre: "Nuevo presupuesto - Toldo Cofre",
+        vertical: "Nuevo presupuesto - Toldo Vertical",
+        veranda: "Nuevo presupuesto - Toldo Veranda"
+      },
+      cat: {
+        default: "Nou pressupost des d'ERB Deco",
+        bioclimatica: "Nou pressupost - Pèrgola Bioclimàtica",
+        compact: "Nou pressupost - Pèrgola Compact",
+        concept: "Nou pressupost - Tendal Concept",
+        smart: "Nou pressupost - Tendal Smart",
+        cofre: "Nou pressupost - Tendal Cofre",
+        vertical: "Nou pressupost - Tendal Vertical",
+        veranda: "Nou pressupost - Tendal Veranda"
+      }
+    };
+
+    if (subjectHidden) {
+      subjectHidden.value = subjectMap[lang][producto] || subjectMap[lang].default;
+    }
+
+    document.documentElement.lang = lang === "cat" ? "ca" : "es";
+  }
+
+  function setLanguage(lang){
+    currentLanguage = lang;
+    localStorage.setItem("siteLanguage", lang);
+
+    document.getElementById("btn-es").classList.toggle("active", lang === "es");
+    document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+
+    translatePage(lang);
+  }
+
+  document.getElementById("btn-es").onclick = () => setLanguage("es");
+  document.getElementById("btn-cat").onclick = () => setLanguage("cat");
+
   // ================= PRODUCTO DESDE URL =================
   const params = new URLSearchParams(window.location.search);
   const producto = params.get("producto") || "";
@@ -387,18 +641,11 @@
   const alturaBox = document.querySelector(".altura-box");
   const campoSalida = document.getElementById("campo-salida");
 
-
   if (productoHidden) {
     productoHidden.value = producto;
   }
+
   if (producto === "bioclimatica") {
-    titulo.textContent = "Configura tu Pérgola Bioclimática";
-    descripcion.textContent = "Personaliza tu pérgola bioclimática y déjanos tus datos para enviarte el presupuesto.";
-
-    if (subjectHidden) {
-      subjectHidden.value = "Nuevo presupuesto - Pérgola Bioclimática";
-    }
-
     if (colorLamas) colorLamas.style.display = "block";
     if (tipoLona) tipoLona.style.display = "none";
     if (lonaBox) lonaBox.style.display = "none";
@@ -406,58 +653,19 @@
     if (extrasToldos) extrasToldos.style.display = "none";
     if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
     if (alturaBox) alturaBox.style.display = "block";
-    if (campoSalida) campoSalida.placeholder = "Largo (mm)";
-    if(coloresToldos) coloresToldos.style.display="none";
-    if(coloresBioclimatica) coloresBioclimatica.style.display="block";
+    if (coloresToldos) coloresToldos.style.display = "none";
+    if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
   }
   else if (producto === "compact") {
-
-  titulo.textContent = "Configura tu Pérgola Tensada Compact";
-  descripcion.textContent = "Personaliza tu pérgola Compact y déjanos tus datos para enviarte el presupuesto.";
-
-  if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Pérgola Compact";
-
-  // Colores
-  if (coloresToldos) coloresToldos.style.display = "none";
-  if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
-
-  // Lamas
-  if (colorLamas) colorLamas.style.display = "none";
-
-  // Lona
-  if (tipoLona) tipoLona.style.display = "none"; 
-  if (lonaBox) lonaBox.style.display = "block";  // 👈 SE MUESTRA
-
-  // Accionamiento
-  if (accionamientoBox) accionamientoBox.style.display = "none";
-
-  // Extras
-  if (extrasToldos) extrasToldos.style.display = "none";
-  if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
-
-  // Medidas
-  if (alturaBox) alturaBox.style.display = "block";
-  if (campoSalida) campoSalida.placeholder = "Largo (mm)";
-}
-  else {
-    if (producto === "concept") {
-      titulo.textContent = "Configura tu Toldo Concept";
-      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Concept";
-    } else if (producto === "smart") {
-      titulo.textContent = "Configura tu Toldo Smart";
-      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Smart";
-    } else if (producto === "cofre") {
-      titulo.textContent = "Configura tu Toldo Cofre";
-      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Cofre";
-    } else if (producto === "vertical") {
-      titulo.textContent = "Configura tu Toldo Vertical";
-      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Vertical";
-    } else if (producto === "veranda") {
-      titulo.textContent = "Configura tu Toldo Veranda";
-      if (subjectHidden) subjectHidden.value = "Nuevo presupuesto - Toldo Veranda";
-    } else {
-      titulo.textContent = "Configura tu Producto";
-    }
+    if (coloresToldos) coloresToldos.style.display = "none";
+    if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
+    if (colorLamas) colorLamas.style.display = "none";
+    if (tipoLona) tipoLona.style.display = "none";
+    if (lonaBox) lonaBox.style.display = "block";
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (extrasToldos) extrasToldos.style.display = "none";
+    if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+    if (alturaBox) alturaBox.style.display = "block";
   }
 
   // ================= SLIDER FONDO =================
@@ -491,6 +699,16 @@
     actualizarExtras();
   }
 
+  // ================= NAV MENU =================
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
+
   // ================= ENVÍO AJAX A FORMSPREE =================
   const form = document.getElementById("budget-form");
   const statusBox = document.getElementById("form-status");
@@ -500,15 +718,15 @@
       event.preventDefault();
 
       const submitButton = form.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton ? submitButton.textContent : "";
+      const originalButtonText = submitButton ? translations[currentLanguage].btn_solicitar : "";
 
       if (statusBox) {
-        statusBox.textContent = "Enviando presupuesto...";
+        statusBox.textContent = translations[currentLanguage].sending_budget;
       }
 
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
+        submitButton.textContent = translations[currentLanguage].sending_button;
       }
 
       try {
@@ -530,7 +748,7 @@
           if (statusBox) {
             statusBox.textContent = data.errors
               ? data.errors.map(error => error.message).join(", ")
-              : "Ha habido un problema al enviar el formulario.";
+              : translations[currentLanguage].submit_error;
           }
 
           if (submitButton) {
@@ -540,7 +758,7 @@
         }
       } catch (error) {
         if (statusBox) {
-          statusBox.textContent = "Ha habido un problema de conexión. Inténtalo de nuevo.";
+          statusBox.textContent = translations[currentLanguage].connection_error;
         }
 
         if (submitButton) {
@@ -549,6 +767,14 @@
         }
       }
     });
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage");
+
+  if(savedLanguage === "cat" || savedLanguage === "es"){
+    setLanguage(savedLanguage);
+  } else {
+    setLanguage("es");
   }
 </script>
 

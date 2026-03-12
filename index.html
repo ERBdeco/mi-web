@@ -117,7 +117,7 @@
   <nav class="nav-links" id="nav-links">
     <a href="#" data-translate="nav_inicio">Inicio</a>
     <a href="galeria.html" data-translate="nav_galeria">Galería</a>
-    <a href="#" data-translate="nav_nosotros">Nosotros</a>
+    <a href="nosotros.html" data-translate="nav_nosotros">Nosotros</a>
     <a href="contacto.html" data-translate="nav_contacto">Contacto</a>
   </nav>
 
@@ -356,8 +356,8 @@ function activateSliders(){
 /* ================= TRADUCCIÓN ================= */
 
 const translations={
-  es:{nav_inicio:"Inicio",nav_servicios:"Servicios",nav_galeria:"Galería",nav_nosotros:"Nosotros",nav_contacto:"Contacto",hero_title:"Diseño. Precisión.<br>Elegancia Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Solicitar Estudio Personalizado",cat_pergolas:"Pérgolas",cat_toldos:"Toldos",cat_cortinas:"Cortinas",cat_mosquiteras:"Mosquiteras"},
-  cat:{nav_inicio:"Inici",nav_servicios:"Serveis",nav_galeria:"Galeria",nav_nosotros:"Nosaltres",nav_contacto:"Contacte",hero_title:"Disseny. Precisió.<br>Elegància Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Sol·licitar Estudi Personalitzat",cat_pergolas:"Pèrgoles",cat_toldos:"Tendals",cat_cortinas:"Cortines",cat_mosquiteras:"Mosquiteres"}
+  es:{nav_inicio:"Inicio",nav_galeria:"Galería",nav_nosotros:"Nosotros",nav_contacto:"Contacto",hero_title:"Diseño. Precisión.<br>Elegancia Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Solicitar Estudio Personalizado",cat_pergolas:"Pérgolas",cat_toldos:"Toldos",cat_cortinas:"Cortinas",cat_mosquiteras:"Mosquiteras"},
+  cat:{nav_inicio:"Inici",nav_galeria:"Galeria",nav_nosotros:"Nosaltres",nav_contacto:"Contacte",hero_title:"Disseny. Precisió.<br>Elegància Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Sol·licitar Estudi Personalitzat",cat_pergolas:"Pèrgoles",cat_toldos:"Tendals",cat_cortinas:"Cortines",cat_mosquiteras:"Mosquiteres"}
 };
 
 function translatePage(lang){
@@ -368,18 +368,22 @@ function translatePage(lang){
   loadProducts(currentCategory);
 }
 
+function setLanguage(lang){
+  currentLanguage = lang;
+  localStorage.setItem("siteLanguage", lang);
+
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+
+  translatePage(lang);
+}
+
 document.getElementById("btn-es").onclick=()=>{
-  currentLanguage="es";
-  document.getElementById("btn-es").classList.add("active");
-  document.getElementById("btn-cat").classList.remove("active");
-  translatePage("es");
+  setLanguage("es");
 };
 
 document.getElementById("btn-cat").onclick=()=>{
-  currentLanguage="cat";
-  document.getElementById("btn-cat").classList.add("active");
-  document.getElementById("btn-es").classList.remove("active");
-  translatePage("cat");
+  setLanguage("cat");
 };
 
 document.querySelectorAll(".product-item").forEach(item=>{
@@ -395,6 +399,14 @@ document.querySelectorAll(".product-item").forEach(item=>{
 
 loadHero(currentCategory);
 loadProducts(currentCategory);
+
+const savedLanguage = localStorage.getItem("siteLanguage");
+
+if(savedLanguage === "cat" || savedLanguage === "es"){
+  setLanguage(savedLanguage);
+} else {
+  setLanguage("es");
+}
 
 /* ================= MENU HAMBURGUESA ================= */
 
