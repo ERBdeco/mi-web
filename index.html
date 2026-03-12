@@ -140,8 +140,8 @@
     <h1 data-translate="hero_title">Diseño. Precisión.<br>Elegancia Exterior.</h1>
     <p data-translate="hero_subtitle">ERB · Barcelona & Girona</p>
     <a href="presupuesto.html" class="btn-dark" data-translate="hero_button">
-  Solicitar Estudio Personalizado
-</a>
+      Solicitar Estudio Personalizado
+    </a>
   </div>
 </section>
 
@@ -164,16 +164,16 @@
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-let currentLanguage="es";
-let currentCategory="pergolas";
-let currentSlide=0;
+let currentLanguage = localStorage.getItem("siteLanguage") || "es";
+let currentCategory = localStorage.getItem("siteCategory") || "pergolas";
+let currentSlide = 0;
 let interval;
 
 /* ================= HERO ================= */
 
 const heroImages={
   pergolas:["images/bioclimatica1.jpeg","images/bioclimatica2.jpeg","images/bioclimatica3.jpeg"],
-  toldos:["images/toldocofre.png","images/toldomonobloc.jpg","images/toldocofre1.png"],
+  toldos:["images/toldocofre.png","images/instalaciones/instalacion-toldo-veranda-hostalric-1.jpeg","images/toldocofre1.png"],
   cortinas:["images/cortina1.jpg","images/cortina2.jpg","images/cortina3.jpg"],
   mosquiteras:[
     "images/instalaciones/mosquitera-enrrollable1.jpeg",
@@ -245,7 +245,6 @@ const productsData={
       es:{t:"Pérgola Toldo Corredero",d:"Minimalismo y precisión."},
       cat:{t:"Pèrgola Tendal Correder",d:"Minimalisme i precisió."}
     }
-   
   ],
 
   toldos:[
@@ -268,13 +267,13 @@ const productsData={
       cat:{t:"Vertical",d:"Protecció frontal elegant."}
     },
     {
-      images:["images/toldocofre.png"],
+      images:["images/instalaciones/instalacion-toldo-veranda-hostalric-1.jpeg"],
       link:"toldos/veranda.html",
       es:{t:"Veranda",d:"Ideal para techos y pérgolas."},
       cat:{t:"Veranda",d:"Ideal per a sostres i pèrgoles."}
     }
   ],
-    mosquiteras:[
+  mosquiteras:[
     {
       images:["images/instalaciones/mosquitera-enrrollable1.jpeg"],
       link:"#",
@@ -356,8 +355,32 @@ function activateSliders(){
 /* ================= TRADUCCIÓN ================= */
 
 const translations={
-  es:{nav_inicio:"Inicio",nav_galeria:"Galería",nav_nosotros:"Nosotros",nav_contacto:"Contacto",hero_title:"Diseño. Precisión.<br>Elegancia Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Solicitar Estudio Personalizado",cat_pergolas:"Pérgolas",cat_toldos:"Toldos",cat_cortinas:"Cortinas",cat_mosquiteras:"Mosquiteras"},
-  cat:{nav_inicio:"Inici",nav_galeria:"Galeria",nav_nosotros:"Nosaltres",nav_contacto:"Contacte",hero_title:"Disseny. Precisió.<br>Elegància Exterior.",hero_subtitle:"ERB · Barcelona & Girona",hero_button:"Sol·licitar Estudi Personalitzat",cat_pergolas:"Pèrgoles",cat_toldos:"Tendals",cat_cortinas:"Cortines",cat_mosquiteras:"Mosquiteres"}
+  es:{
+    nav_inicio:"Inicio",
+    nav_galeria:"Galería",
+    nav_nosotros:"Nosotros",
+    nav_contacto:"Contacto",
+    hero_title:"Diseño. Precisión.<br>Elegancia Exterior.",
+    hero_subtitle:"ERB · Barcelona & Girona",
+    hero_button:"Solicitar Estudio Personalizado",
+    cat_pergolas:"Pérgolas",
+    cat_toldos:"Toldos",
+    cat_cortinas:"Cortinas",
+    cat_mosquiteras:"Mosquiteras"
+  },
+  cat:{
+    nav_inicio:"Inici",
+    nav_galeria:"Galeria",
+    nav_nosotros:"Nosaltres",
+    nav_contacto:"Contacte",
+    hero_title:"Disseny. Precisió.<br>Elegància Exterior.",
+    hero_subtitle:"ERB · Barcelona & Girona",
+    hero_button:"Sol·licitar Estudi Personalitzat",
+    cat_pergolas:"Pèrgoles",
+    cat_toldos:"Tendals",
+    cat_cortinas:"Cortines",
+    cat_mosquiteras:"Mosquiteres"
+  }
 };
 
 function translatePage(lang){
@@ -365,6 +388,8 @@ function translatePage(lang){
     const key=el.dataset.translate;
     if(translations[lang][key]) el.innerHTML=translations[lang][key];
   });
+
+  document.documentElement.lang = lang === "cat" ? "ca" : "es";
   loadProducts(currentCategory);
 }
 
@@ -391,19 +416,25 @@ document.querySelectorAll(".product-item").forEach(item=>{
     e.preventDefault();
     document.querySelectorAll(".product-item").forEach(i=>i.classList.remove("active"));
     item.classList.add("active");
-    currentCategory=item.dataset.category;
+    currentCategory = item.dataset.category;
+    localStorage.setItem("siteCategory", currentCategory);
     loadHero(currentCategory);
     loadProducts(currentCategory);
   });
 });
 
+document.querySelectorAll(".product-item").forEach(item=>{
+  item.classList.remove("active");
+  if(item.dataset.category === currentCategory){
+    item.classList.add("active");
+  }
+});
+
 loadHero(currentCategory);
 loadProducts(currentCategory);
 
-const savedLanguage = localStorage.getItem("siteLanguage");
-
-if(savedLanguage === "cat" || savedLanguage === "es"){
-  setLanguage(savedLanguage);
+if(currentLanguage === "cat" || currentLanguage === "es"){
+  setLanguage(currentLanguage);
 } else {
   setLanguage("es");
 }
