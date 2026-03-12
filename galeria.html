@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galería | ERB Deco</title>
-<meta name="description" content="Galería de instalaciones de pérgolas, toldos, cortinas y mosquiteras de ERB Deco.">
+<meta name="description" content="Galería de instalaciones reales de pérgolas, toldos, cortinas y mosquiteras de ERB Deco en Barcelona y Girona.">
 
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -93,6 +93,7 @@
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-card:hover{
@@ -128,6 +129,38 @@
   padding: 40px 25px;
   text-align: center;
   color: #999;
+}
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  z-index: 9999;
+}
+
+.lightbox.active{
+  display: flex;
+}
+
+.lightbox img{
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close{
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 42px;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
 }
 
 @media (max-width: 900px){
@@ -169,7 +202,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17967606627');
 </script>
 </head>
@@ -198,8 +230,7 @@
 <section class="gallery-hero">
   <h1 data-translate="gallery_title">Galería de instalaciones</h1>
   <p data-translate="gallery_intro">
-    Descubre una selección de trabajos e instalaciones reales de pérgolas, toldos,
-    cortinas y mosquiteras. Explora cada categoría para ver proyectos y acabados.
+    Descubre una selección de trabajos e instalaciones reales de pérgolas, toldos, cortinas y mosquiteras. Explora cada categoría para ver proyectos y acabados.
   </p>
 </section>
 
@@ -215,72 +246,16 @@
   <!-- PÉRGOLAS -->
   <div class="gallery-category-block active" data-block="pergolas">
     <div class="gallery-category-header">
-      <h2 data-translate="block_pergolas_title">Pérgolas</h2>
-      <p data-translate="block_pergolas_text">Instalaciones reales de pérgolas y soluciones de exterior. De momento se muestran imágenes de pérgola toldo corredero.</p>
+      <h2 data-translate="pergolas_title">Pérgolas</h2>
+      <p data-translate="pergolas_intro">Instalaciones reales de pérgolas y soluciones de exterior.</p>
     </div>
 
     <div class="gallery-grid">
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero1.jpeg" alt="Instalación pérgola toldo corredero 1">
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-pergola-toldo-corredero-1.jpeg">
+        <img src="images/instalaciones/instalacion-pergola-toldo-corredero-1.jpeg" alt="Instalación pérgola toldo corredero">
         <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero2.jpeg" alt="Instalación pérgola toldo corredero 2">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero3.jpeg" alt="Instalación pérgola toldo corredero 3">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero4.jpeg" alt="Instalación pérgola toldo corredero 4">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero5.jpeg" alt="Instalación pérgola toldo corredero 5">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero6.jpeg" alt="Instalación pérgola toldo corredero 6">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero7.jpeg" alt="Instalación pérgola toldo corredero 7">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
-        </div>
-      </article>
-
-      <article class="gallery-card">
-        <img src="images/instalaciones/inst-toldo-corredero8.jpeg" alt="Instalación pérgola toldo corredero 8">
-        <div class="gallery-card-info">
-          <h3 data-translate="card_pergola_title">Pérgola Toldo Corredero</h3>
-          <p data-translate="card_real_installation">Instalación real</p>
+          <h3 data-translate="pergola_item_1_title">Pérgola Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
         </div>
       </article>
     </div>
@@ -289,23 +264,151 @@
   <!-- TOLDOS -->
   <div class="gallery-category-block" data-block="toldos">
     <div class="gallery-category-header">
-      <h2 data-translate="block_toldos_title">Toldos</h2>
-      <p data-translate="block_toldos_text">Galería de instalaciones de toldos. Aquí podrás ir añadiendo futuras imágenes por categoría.</p>
+      <h2 data-translate="toldos_title">Toldos</h2>
+      <p data-translate="toldos_intro">Galería de instalaciones reales de toldos articulados, cofre, veranda, vertical ZIP y correderos.</p>
     </div>
 
-    <div class="gallery-empty" data-translate="empty_toldos">
-      Próximamente añadiremos instalaciones de toldos.
+    <div class="gallery-grid">
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-brazos-articulados-concept-1.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-brazos-articulados-concept-1.jpeg" alt="Instalación toldo brazos articulados">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_1_title">Toldo Brazos Articulados</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-cofre-1.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-cofre-1.jpeg" alt="Instalación toldo cofre">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_2_title">Toldo Cofre</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-cofre-3.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-cofre-3.jpeg" alt="Instalación toldo cofre 2">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_2_title">Toldo Cofre</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-veranda-2.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-veranda-2.jpeg" alt="Instalación toldo veranda">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_3_title">Toldo Veranda</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-veranda-hostalric-1.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-veranda-hostalric-1.jpeg" alt="Instalación toldo veranda Hostalric">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_3_title">Toldo Veranda</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-vertical-zip-1.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-vertical-zip-1.jpeg" alt="Instalación toldo vertical zip">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_4_title">Toldo Vertical ZIP</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-vertical-zip-2.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-vertical-zip-2.jpeg" alt="Instalación toldo vertical zip 2">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_4_title">Toldo Vertical ZIP</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-toldo-corredero-1.jpeg">
+        <img src="images/instalaciones/instalacion-toldo-corredero-1.jpeg" alt="Instalación toldo corredero">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero2.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero2.jpeg" alt="Instalación toldo corredero 2">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero3.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero3.jpeg" alt="Instalación toldo corredero 3">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero4.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero4.jpeg" alt="Instalación toldo corredero 4">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero5.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero5.jpeg" alt="Instalación toldo corredero 5">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero6.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero6.jpeg" alt="Instalación toldo corredero 6">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero7.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero7.jpeg" alt="Instalación toldo corredero 7">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero8.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero8.jpeg" alt="Instalación toldo corredero 8">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/inst-toldo-corredero9.jpeg">
+        <img src="images/instalaciones/inst-toldo-corredero9.jpeg" alt="Instalación toldo corredero 9">
+        <div class="gallery-card-info">
+          <h3 data-translate="toldo_item_5_title">Toldo Corredero</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
     </div>
   </div>
 
   <!-- CORTINAS -->
   <div class="gallery-category-block" data-block="cortinas">
     <div class="gallery-category-header">
-      <h2 data-translate="block_cortinas_title">Cortinas</h2>
-      <p data-translate="block_cortinas_text">Galería de cortinas e instalaciones interiores.</p>
+      <h2 data-translate="cortinas_title">Cortinas</h2>
+      <p data-translate="cortinas_intro">Galería de cortinas e instalaciones interiores.</p>
     </div>
 
-    <div class="gallery-empty" data-translate="empty_cortinas">
+    <div class="gallery-empty" data-translate="cortinas_empty">
       Próximamente añadiremos instalaciones de cortinas.
     </div>
   </div>
@@ -313,16 +416,109 @@
   <!-- MOSQUITERAS -->
   <div class="gallery-category-block" data-block="mosquiteras">
     <div class="gallery-category-header">
-      <h2 data-translate="block_mosquiteras_title">Mosquiteras</h2>
-      <p data-translate="block_mosquiteras_text">Galería de soluciones de mosquiteras para diferentes espacios.</p>
+      <h2 data-translate="mosquiteras_title">Mosquiteras</h2>
+      <p data-translate="mosquiteras_intro">Galería de soluciones de mosquiteras para diferentes espacios.</p>
     </div>
 
-    <div class="gallery-empty" data-translate="empty_mosquiteras">
-      Próximamente añadiremos instalaciones de mosquiteras.
+    <div class="gallery-grid">
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-mosquitera-autoenrollable-1.jpeg">
+        <img src="images/instalaciones/instalacion-mosquitera-autoenrollable-1.jpeg" alt="Instalación mosquitera autoenrollable">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_1_title">Mosquitera Autoenrollable</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/instalacion-mosquitera-corredera-plisada-1.jpeg">
+        <img src="images/instalaciones/instalacion-mosquitera-corredera-plisada-1.jpeg" alt="Instalación mosquitera corredera plisada">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_2_title">Mosquitera Corredera Plisada</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-oruga1.jpeg">
+        <img src="images/instalaciones/mosquitera-oruga1.jpeg" alt="Mosquitera oruga">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_3_title">Mosquitera Oruga</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-enrollable1.jpeg">
+        <img src="images/instalaciones/mosquitera-enrollable1.jpeg" alt="Mosquitera enrollable 1">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_1_title">Mosquitera Autoenrollable</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-enrollable2.jpeg">
+        <img src="images/instalaciones/mosquitera-enrollable2.jpeg" alt="Mosquitera enrollable 2">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_1_title">Mosquitera Autoenrollable</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-especial1.jpeg">
+        <img src="images/instalaciones/mosquitera-especial1.jpeg" alt="Mosquitera especial 1">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_4_title">Mosquitera Especial</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-especial3.jpeg">
+        <img src="images/instalaciones/mosquitera-especial3.jpeg" alt="Mosquitera especial 3">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_4_title">Mosquitera Especial</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-plisada1.jpeg">
+        <img src="images/instalaciones/mosquitera-plisada1.jpeg" alt="Mosquitera plisada 1">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_2_title">Mosquitera Plisada</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-plisada2.jpeg">
+        <img src="images/instalaciones/mosquitera-plisada2.jpeg" alt="Mosquitera plisada 2">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_2_title">Mosquitera Plisada</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-plisada3.jpeg">
+        <img src="images/instalaciones/mosquitera-plisada3.jpeg" alt="Mosquitera plisada 3">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_2_title">Mosquitera Plisada</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-full="images/instalaciones/mosquitera-plisada4.jpeg">
+        <img src="images/instalaciones/mosquitera-plisada4.jpeg" alt="Mosquitera plisada 4">
+        <div class="gallery-card-info">
+          <h3 data-translate="mosq_item_2_title">Mosquitera Plisada</h3>
+          <p data-translate="real_installation">Instalación real</p>
+        </div>
+      </article>
+
     </div>
   </div>
 
 </section>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close">&times;</span>
+  <img id="lightbox-image" src="" alt="Imagen ampliada">
+</div>
 
 <div class="language-switch">
   <button id="btn-es" class="active">ES</button>
@@ -334,74 +530,96 @@ let currentLanguage = "es";
 
 const translations = {
   es: {
-    nav_inicio: "Inicio",
-    nav_galeria: "Galería",
-    nav_nosotros: "Nosotros",
-    nav_contacto: "Contacto",
+    nav_inicio:"Inicio",
+    nav_galeria:"Galería",
+    nav_nosotros:"Nosotros",
+    nav_contacto:"Contacto",
 
-    gallery_title: "Galería de instalaciones",
-    gallery_intro: "Descubre una selección de trabajos e instalaciones reales de pérgolas, toldos, cortinas y mosquiteras. Explora cada categoría para ver proyectos y acabados.",
+    gallery_title:"Galería de instalaciones",
+    gallery_intro:"Descubre una selección de trabajos e instalaciones reales de pérgolas, toldos, cortinas y mosquiteras. Explora cada categoría para ver proyectos y acabados.",
 
-    cat_pergolas: "Pérgolas",
-    cat_toldos: "Toldos",
-    cat_cortinas: "Cortinas",
-    cat_mosquiteras: "Mosquiteras",
+    cat_pergolas:"Pérgolas",
+    cat_toldos:"Toldos",
+    cat_cortinas:"Cortinas",
+    cat_mosquiteras:"Mosquiteras",
 
-    block_pergolas_title: "Pérgolas",
-    block_pergolas_text: "Instalaciones reales de pérgolas y soluciones de exterior. De momento se muestran imágenes de pérgola toldo corredero.",
-    card_pergola_title: "Pérgola Toldo Corredero",
-    card_real_installation: "Instalación real",
+    pergolas_title:"Pérgolas",
+    pergolas_intro:"Instalaciones reales de pérgolas y soluciones de exterior.",
 
-    block_toldos_title: "Toldos",
-    block_toldos_text: "Galería de instalaciones de toldos. Aquí podrás ir añadiendo futuras imágenes por categoría.",
-    empty_toldos: "Próximamente añadiremos instalaciones de toldos.",
+    toldos_title:"Toldos",
+    toldos_intro:"Galería de instalaciones reales de toldos articulados, cofre, veranda, vertical ZIP y correderos.",
 
-    block_cortinas_title: "Cortinas",
-    block_cortinas_text: "Galería de cortinas e instalaciones interiores.",
-    empty_cortinas: "Próximamente añadiremos instalaciones de cortinas.",
+    cortinas_title:"Cortinas",
+    cortinas_intro:"Galería de cortinas e instalaciones interiores.",
+    cortinas_empty:"Próximamente añadiremos instalaciones de cortinas.",
 
-    block_mosquiteras_title: "Mosquiteras",
-    block_mosquiteras_text: "Galería de soluciones de mosquiteras para diferentes espacios.",
-    empty_mosquiteras: "Próximamente añadiremos instalaciones de mosquiteras."
+    mosquiteras_title:"Mosquiteras",
+    mosquiteras_intro:"Galería de soluciones de mosquiteras para diferentes espacios.",
+
+    real_installation:"Instalación real",
+
+    pergola_item_1_title:"Pérgola Toldo Corredero",
+
+    toldo_item_1_title:"Toldo Brazos Articulados",
+    toldo_item_2_title:"Toldo Cofre",
+    toldo_item_3_title:"Toldo Veranda",
+    toldo_item_4_title:"Toldo Vertical ZIP",
+    toldo_item_5_title:"Toldo Corredero",
+
+    mosq_item_1_title:"Mosquitera Autoenrollable",
+    mosq_item_2_title:"Mosquitera Plisada",
+    mosq_item_3_title:"Mosquitera Oruga",
+    mosq_item_4_title:"Mosquitera Especial"
   },
 
   cat: {
-    nav_inicio: "Inici",
-    nav_galeria: "Galeria",
-    nav_nosotros: "Nosaltres",
-    nav_contacto: "Contacte",
+    nav_inicio:"Inici",
+    nav_galeria:"Galeria",
+    nav_nosotros:"Nosaltres",
+    nav_contacto:"Contacte",
 
-    gallery_title: "Galeria d'instal·lacions",
-    gallery_intro: "Descobreix una selecció de treballs i instal·lacions reals de pèrgoles, tendals, cortines i mosquiteres. Explora cada categoria per veure projectes i acabats.",
+    gallery_title:"Galeria d'instal·lacions",
+    gallery_intro:"Descobreix una selecció de treballs i instal·lacions reals de pèrgoles, tendals, cortines i mosquiteres. Explora cada categoria per veure projectes i acabats.",
 
-    cat_pergolas: "Pèrgoles",
-    cat_toldos: "Tendals",
-    cat_cortinas: "Cortines",
-    cat_mosquiteras: "Mosquiteres",
+    cat_pergolas:"Pèrgoles",
+    cat_toldos:"Tendals",
+    cat_cortinas:"Cortines",
+    cat_mosquiteras:"Mosquiteres",
 
-    block_pergolas_title: "Pèrgoles",
-    block_pergolas_text: "Instal·lacions reals de pèrgoles i solucions d'exterior. De moment es mostren imatges de pèrgola tendal correder.",
-    card_pergola_title: "Pèrgola Tendal Correder",
-    card_real_installation: "Instal·lació real",
+    pergolas_title:"Pèrgoles",
+    pergolas_intro:"Instal·lacions reals de pèrgoles i solucions d'exterior.",
 
-    block_toldos_title: "Tendals",
-    block_toldos_text: "Galeria d'instal·lacions de tendals. Aquí podràs anar afegint futures imatges per categoria.",
-    empty_toldos: "Pròximament afegirem instal·lacions de tendals.",
+    toldos_title:"Tendals",
+    toldos_intro:"Galeria d'instal·lacions reals de tendals articulats, cofre, veranda, vertical ZIP i correders.",
 
-    block_cortinas_title: "Cortines",
-    block_cortinas_text: "Galeria de cortines i instal·lacions interiors.",
-    empty_cortinas: "Pròximament afegirem instal·lacions de cortines.",
+    cortinas_title:"Cortines",
+    cortinas_intro:"Galeria de cortines i instal·lacions interiors.",
+    cortinas_empty:"Pròximament afegirem instal·lacions de cortines.",
 
-    block_mosquiteras_title: "Mosquiteres",
-    block_mosquiteras_text: "Galeria de solucions de mosquiteres per a diferents espais.",
-    empty_mosquiteras: "Pròximament afegirem instal·lacions de mosquiteres."
+    mosquiteras_title:"Mosquiteres",
+    mosquiteras_intro:"Galeria de solucions de mosquiteres per a diferents espais.",
+
+    real_installation:"Instal·lació real",
+
+    pergola_item_1_title:"Pèrgola Tendal Correder",
+
+    toldo_item_1_title:"Tendal Braços Articulats",
+    toldo_item_2_title:"Tendal Cofre",
+    toldo_item_3_title:"Tendal Veranda",
+    toldo_item_4_title:"Tendal Vertical ZIP",
+    toldo_item_5_title:"Tendal Correder",
+
+    mosq_item_1_title:"Mosquitera Autoenrotllable",
+    mosq_item_2_title:"Mosquitera Plisada",
+    mosq_item_3_title:"Mosquitera Oruga",
+    mosq_item_4_title:"Mosquitera Especial"
   }
 };
 
 function translatePage(lang){
-  document.querySelectorAll("[data-translate]").forEach(el => {
+  document.querySelectorAll("[data-translate]").forEach(el=>{
     const key = el.dataset.translate;
-    if (translations[lang] && translations[lang][key]) {
+    if(translations[lang] && translations[lang][key]){
       el.innerHTML = translations[lang][key];
     }
   });
@@ -419,13 +637,8 @@ function setLanguage(lang){
   translatePage(lang);
 }
 
-document.getElementById("btn-es").onclick = () => {
-  setLanguage("es");
-};
-
-document.getElementById("btn-cat").onclick = () => {
-  setLanguage("cat");
-};
+document.getElementById("btn-es").onclick = ()=> setLanguage("es");
+document.getElementById("btn-cat").onclick = ()=> setLanguage("cat");
 
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
@@ -447,17 +660,36 @@ filters.forEach(filter => {
     filter.classList.add("active");
 
     blocks.forEach(block => {
-      if (block.dataset.block === category) {
-        block.classList.add("active");
-      } else {
-        block.classList.remove("active");
-      }
+      block.classList.toggle("active", block.dataset.block === category);
     });
   });
 });
 
-const savedLanguage = localStorage.getItem("siteLanguage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxClose = document.getElementById("lightbox-close");
 
+document.querySelectorAll(".gallery-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const fullImage = card.dataset.full;
+    lightboxImage.src = fullImage;
+    lightbox.classList.add("active");
+  });
+});
+
+lightboxClose.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+  lightboxImage.src = "";
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("active");
+    lightboxImage.src = "";
+  }
+});
+
+const savedLanguage = localStorage.getItem("siteLanguage");
 if(savedLanguage === "cat" || savedLanguage === "es"){
   setLanguage(savedLanguage);
 } else {
