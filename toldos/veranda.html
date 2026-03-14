@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toldos Veranda | ERB Deco</title>
+
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17967606627');
+</script>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="logo">
+<img src="/images/ERBlogosinfondo.png" alt="ERB">
+</div>
+
+<nav class="nav-links" id="nav-links">
+<a href="/index.html">Inicio</a>
+<a href="/galeria.html">Galería</a>
+<a href="/nosotros.html">Nosotros</a>
+<a href="/contacto.html">Contacto</a>
+</nav>
+
+<div class="menu-toggle" id="menu-toggle">
+<span></span><span></span><span></span>
+</div>
+</header>
+
+
+<section class="products-section page-products">
+<div class="products-container">
+
+<!-- VERANDA CLÁSICO -->
+<a href="productos/veranda-clasico.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/veranda-clasico-1.jpg",
+"../images/veranda-clasico-2.jpg"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Veranda Clásico</h3>
+<p>Sistema elegante para cubrir techos de cristal y pérgolas con protección solar.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+<!-- VERANDA PLUS -->
+<a href="productos/veranda-plus.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/veranda-plus-1.jpg",
+"../images/veranda-plus-2.jpg"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Veranda Plus</h3>
+<p>Modelo avanzado con mayor resistencia y diseño moderno para grandes terrazas.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+<!-- VERANDA GRANDES DIMENSIONES -->
+<a href="productos/veranda-plus-grandes.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/veranda-grande-1.jpg",
+"../images/veranda-grande-2.jpg"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Veranda Plus Grandes Dimensiones</h3>
+<p>Diseñado para cubrir grandes superficies con máxima estabilidad y durabilidad.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+</div>
+</section>
+
+
+<script>
+document.querySelectorAll(".product-slider").forEach(slider=>{
+const images = JSON.parse(slider.dataset.images);
+const imgDiv = slider.querySelector(".product-image");
+const left = slider.querySelector(".left");
+const right = slider.querySelector(".right");
+
+let index=0;
+
+function setImage(i){
+imgDiv.style.backgroundImage = `url('${images[i]}')`;
+}
+
+setImage(index);
+
+right.addEventListener("click",(e)=>{
+e.preventDefault();
+e.stopPropagation();
+index=(index+1)%images.length;
+setImage(index);
+});
+
+left.addEventListener("click",(e)=>{
+e.preventDefault();
+e.stopPropagation();
+index=(index-1+images.length)%images.length;
+setImage(index);
+});
+});
+</script>
+
+</body>
+</html>

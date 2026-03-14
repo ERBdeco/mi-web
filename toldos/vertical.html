@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toldos Verticales | ERB Deco</title>
+
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17967606627');
+</script>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="logo">
+<img src="/images/ERBlogosinfondo.png" alt="ERB">
+</div>
+
+<nav class="nav-links" id="nav-links">
+<a href="/index.html">Inicio</a>
+<a href="/galeria.html">Galería</a>
+<a href="/nosotros.html">Nosotros</a>
+<a href="/contacto.html">Contacto</a>
+</nav>
+
+<div class="menu-toggle" id="menu-toggle">
+<span></span><span></span><span></span>
+</div>
+</header>
+
+
+<section class="products-section page-products">
+<div class="products-container">
+
+
+<!-- TOLDO VERTICAL BASICO -->
+<a href="productos/vertical-basico.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/1020_003.jpg"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Toldo Vertical Básico/balcon</h3>
+<p>Solución sencilla y funcional para protección solar en balcones y terrazas.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+<!-- TOLDO VERTICAL ZIP -->
+<a href="productos/toldo-vertical-zip.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/instalaciones/instalacion-toldo-vertical-zip-sant-celoni-1.jpeg",
+"../images/4006_003.jpg"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Toldo Vertical Guia ZIP</h3>
+<p>Sistema con cierre hermético ideal para viento y máxima protección solar.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+<!-- TOLDO VERTICAL VARILLA -->
+<a href="productos/toldo-vertical-varilla.html" class="product-card">
+<div class="product-slider" data-images='[
+"../images/instalaciones/instalacion-toldo-vertical-guia-varilla-vilamajor-1.jpeg",
+"../images/4009_006.png"
+]'>
+<div class="arrow left">&#10094;</div>
+<div class="product-image"></div>
+<div class="arrow right">&#10095;</div>
+</div>
+
+<div class="product-info">
+<h3>Toldo Vertical Guia Con Varilla</h3>
+<p>Sistema vertical con guias y varilla interna.</p>
+<span class="price">Consultar precio</span>
+</div>
+</a>
+
+
+
+</section>
+
+
+<script>
+document.querySelectorAll(".product-slider").forEach(slider=>{
+const images = JSON.parse(slider.dataset.images);
+const imgDiv = slider.querySelector(".product-image");
+const left = slider.querySelector(".left");
+const right = slider.querySelector(".right");
+
+let index=0;
+
+function setImage(i){
+imgDiv.style.backgroundImage = `url('${images[i]}')`;
+}
+
+setImage(index);
+
+right.addEventListener("click",(e)=>{
+e.preventDefault();
+e.stopPropagation();
+index=(index+1)%images.length;
+setImage(index);
+});
+
+left.addEventListener("click",(e)=>{
+e.preventDefault();
+e.stopPropagation();
+index=(index-1+images.length)%images.length;
+setImage(index);
+});
+});
+</script>
+
+</body>
+</html>
