@@ -321,16 +321,25 @@ text-align:left;
   gap: 30px;
 }
 
-.tech-card {
-  background: #171717;
-  padding: 25px;
-  border-radius: 14px;
+.tech-card{
+  background:#171717;
+  padding:25px;
+  border-radius:14px;
+  text-align:center;
+  transition:0.3s;
 }
 
-.tech-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+.tech-card:hover{
+  transform:translateY(-4px);
+}
+
+.tech-card img{
+  width:100%;
+  max-width:240px;
+  height:auto;
+  margin:0 auto 15px auto;
+  display:block;
+  border-radius:10px;
 }
 
 .tech-card p {
