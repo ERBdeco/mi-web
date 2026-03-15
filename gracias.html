@@ -7,6 +7,8 @@
 
 <title>Gracias | ERB Deco</title>
 
+<meta name="robots" content="noindex, nofollow">
+
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="budget.css">
 
@@ -15,12 +17,18 @@
 <!-- ================= clics google business ================= -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'AW-17967606627');
+gtag('config', 'AW-17967606627');
+
+/* Conversión Google Ads al cargar página gracias */
+gtag('event', 'conversion', {
+  'send_to': 'AW-17967606627/L9-_CPreyIYcEOPWz_dC'
+});
 </script>
+
 </head>
 
 <body>
@@ -71,84 +79,110 @@ Volver a la página principal
 </section>
 
 <div class="language-switch">
-  <button id="btn-es" class="active">ES</button>
-  <button id="btn-cat">CAT</button>
+<button id="btn-es" class="active">ES</button>
+<button id="btn-cat">CAT</button>
 </div>
 
 <script>
+
 let currentLanguage = "es";
 
 const translations = {
-  es: {
-    nav_inicio: "Inicio",
-    nav_galeria: "Galería",
-    nav_nosotros: "Nosotros",
-    nav_contacto: "Contacto",
 
-    thanks_title: "¡Gracias por tu solicitud!",
-    thanks_text_1: "Hemos recibido tu solicitud de presupuesto correctamente.",
-    thanks_text_2: "Nuestro equipo revisará tu configuración y te contactaremos lo antes posible.",
-    thanks_button: "Volver a la página principal"
-  },
+es: {
 
-  cat: {
-    nav_inicio: "Inici",
-    nav_galeria: "Galeria",
-    nav_nosotros: "Nosaltres",
-    nav_contacto: "Contacte",
+nav_inicio: "Inicio",
+nav_galeria: "Galería",
+nav_nosotros: "Nosotros",
+nav_contacto: "Contacto",
 
-    thanks_title: "Gràcies per la teva sol·licitud!",
-    thanks_text_1: "Hem rebut correctament la teva sol·licitud de pressupost.",
-    thanks_text_2: "El nostre equip revisarà la teva configuració i et contactarem al més aviat possible.",
-    thanks_button: "Tornar a la pàgina principal"
-  }
+thanks_title: "¡Gracias por tu solicitud!",
+thanks_text_1: "Hemos recibido tu solicitud de presupuesto correctamente.",
+thanks_text_2: "Nuestro equipo revisará tu configuración y te contactaremos lo antes posible.",
+thanks_button: "Volver a la página principal"
+
+},
+
+cat: {
+
+nav_inicio: "Inici",
+nav_galeria: "Galeria",
+nav_nosotros: "Nosaltres",
+nav_contacto: "Contacte",
+
+thanks_title: "Gràcies per la teva sol·licitud!",
+thanks_text_1: "Hem rebut correctament la teva sol·licitud de pressupost.",
+thanks_text_2: "El nostre equip revisarà la teva configuració i et contactarà al més aviat possible.",
+thanks_button: "Tornar a la pàgina principal"
+
+}
+
 };
 
 function translatePage(lang){
-  document.querySelectorAll("[data-translate]").forEach(el => {
-    const key = el.dataset.translate;
-    if (translations[lang] && translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
-    }
-  });
 
-  document.documentElement.lang = lang === "cat" ? "ca" : "es";
+document.querySelectorAll("[data-translate]").forEach(el => {
+
+const key = el.dataset.translate;
+
+if (translations[lang] && translations[lang][key]) {
+
+el.innerHTML = translations[lang][key];
+
+}
+
+});
+
+document.documentElement.lang = lang === "cat" ? "ca" : "es";
+
 }
 
 function setLanguage(lang){
-  currentLanguage = lang;
-  localStorage.setItem("siteLanguage", lang);
 
-  document.getElementById("btn-es").classList.toggle("active", lang === "es");
-  document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+currentLanguage = lang;
 
-  translatePage(lang);
+localStorage.setItem("siteLanguage", lang);
+
+document.getElementById("btn-es").classList.toggle("active", lang === "es");
+document.getElementById("btn-cat").classList.toggle("active", lang === "cat");
+
+translatePage(lang);
+
 }
 
 document.getElementById("btn-es").onclick = () => {
-  setLanguage("es");
+setLanguage("es");
 };
 
 document.getElementById("btn-cat").onclick = () => {
-  setLanguage("cat");
+setLanguage("cat");
 };
 
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
 if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+
+menuToggle.addEventListener("click", () => {
+
+navLinks.classList.toggle("active");
+
+});
+
 }
 
 const savedLanguage = localStorage.getItem("siteLanguage");
 
 if(savedLanguage === "cat" || savedLanguage === "es"){
-  setLanguage(savedLanguage);
-} else {
-  setLanguage("es");
+
+setLanguage(savedLanguage);
+
+}else{
+
+setLanguage("es");
+
 }
+
 </script>
 
 </body>
