@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seleccionar producto | ERB Deco</title>
+
+<meta name="description" content="Selecciona el producto para configurar tu presupuesto personalizado de pérgolas, toldos, cortinas o mosquiteras con ERB Deco.">
+
+<link rel="canonical" href="https://erbdeco.com/seleccionar-producto.html">
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+.product-section{
+padding:120px 20px 80px;
+max-width:1200px;
+margin:auto;
+}
+
+.product-header{
+margin-bottom:50px;
+}
+
+.product-header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.product-header p{
+color:#aaa;
+font-size:18px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.product-card{
+background:#111;
+border-radius:8px;
+overflow:hidden;
+text-decoration:none;
+transition:.3s;
+}
+
+.product-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.product-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.product-info{
+padding:18px;
+}
+
+.product-info h3{
+color:#e7c26a;
+margin-bottom:8px;
+}
+
+.product-info p{
+color:#bbb;
+font-size:14px;
+}
+
+@media (max-width:1000px){
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media (max-width:600px){
+.product-grid{
+grid-template-columns:1fr;
+}
+.product-header h1{
+font-size:30px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+<a href="index.html">
+<img src="images/ERBlogosinfondo.png" alt="ERB">
+</a>
+</div>
+
+<nav class="nav-links" id="nav-links">
+<a href="index.html">Inicio</a>
+<a href="galeria.html">Galería</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+<div class="menu-toggle" id="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</header>
+
+<div class="menu-overlay"></div>
+
+
+<section class="product-section">
+
+<div class="product-header">
+
+<h1>Selecciona el producto</h1>
+
+<p>
+Elige el producto para iniciar tu presupuesto personalizado.
+</p>
+
+</div>
+
+<div class="product-grid" id="product-grid"></div>
+
+</section>
+
+
+<script>
+
+/* PRODUCTOS */
+
+const products = {
+
+pergolas:[
+
+{
+slug:"bioclimatica",
+name:"Pérgola bioclimática",
+img:"images/bioclimatica1.jpeg",
+desc:"Sistema de lamas orientables para controlar sol y ventilación."
+},
+
+{
+slug:"compact",
+name:"Pérgola tensada",
+img:"images/pergola-tensada.jpeg",
+desc:"Sistema textil tensado para cubrir grandes superficies."
+},
+
+{
+slug:"tensada",
+name:"Pérgola tensada inclinada",
+img:"images/pergola-tensada.jpeg",
+desc:"Versión inclinada para drenaje de agua."
+},
+
+{
+slug:"corredero",
+name:"Pérgola toldo corredero",
+img:"images/pergola-corredera.jpeg",
+desc:"Sistema corredero para terrazas y jardines."
+}
+
+],
+
+
+toldos:[
+
+{
+slug:"toldo-brazos",
+name:"Toldo brazos articulados",
+img:"images/2026_002.jpg",
+desc:"Sistema ideal para terrazas y balcones."
+},
+
+{
+slug:"toldo-cofre",
+name:"Toldo cofre",
+img:"images/5026_002.jpg",
+desc:"Protección total del tejido y mecanismo."
+},
+
+{
+slug:"toldo-vertical",
+name:"Toldo vertical",
+img:"images/toldo-vertical.jpeg",
+desc:"Protección solar vertical para balcones."
+}
+
+],
+
+
+cortinas:[
+
+{
+slug:"cortina-zip",
+name:"Cortina zip",
+img:"images/1020_003.jpg",
+desc:"Sistema guiado resistente al viento."
+}
+
+],
+
+
+mosquiteras:[
+
+{
+slug:"mosquitera-enrollable",
+name:"Mosquitera enrollable",
+img:"images/instalaciones/instalacion-mosquitera-autoenrollable-1.jpeg",
+desc:"Sistema discreto para ventanas."
+}
+
+]
+
+};
+
+
+
+/* CATEGORIA */
+
+const params = new URLSearchParams(window.location.search);
+const category = params.get("cat");
+
+const grid = document.getElementById("product-grid");
+
+
+
+function renderProducts(){
+
+grid.innerHTML="";
+
+if(!products[category]) return;
+
+products[category].forEach(product=>{
+
+const card = document.createElement("a");
+
+card.className="product-card";
+
+/* ENLACE DIRECTO AL PRESUPUESTO DEL PRODUCTO */
+
+card.href=`presupuesto.html?producto=${product.slug}`;
+
+card.innerHTML=`
+
+<img src="${product.img}">
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<p>${product.desc}</p>
+
+</div>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+renderProducts();
+
+
+
+/* MENU HAMBURGUESA */
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+const overlay = document.querySelector(".menu-overlay");
+
+menuToggle.addEventListener("click",()=>{
+
+navLinks.classList.toggle("active");
+overlay.classList.toggle("active");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+navLinks.classList.remove("active");
+overlay.classList.remove("active");
+
+});
+
+</script>
+
+</body>
+</html>
