@@ -8,19 +8,12 @@
 <link rel="stylesheet" href="../styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Favicon -->
-
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-
 <link rel="manifest" href="/favicon/site.webmanifest">
-
 <link rel="shortcut icon" href="/favicon/favicon.ico">
 
-<!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17967606627"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -28,6 +21,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-17967606627');
 </script>
+
 </head>
 
 <body>
@@ -38,10 +32,10 @@ gtag('config', 'AW-17967606627');
 </div>
 
 <nav class="nav-links" id="nav-links">
-<a href="/index.html">Inicio</a>
-<a href="/galeria.html">Galería</a>
-<a href="/nosotros.html">Nosotros</a>
-<a href="/contacto.html">Contacto</a>
+<a href="/index.html" data-translate="nav_inicio"></a>
+<a href="/galeria.html" data-translate="nav_galeria"></a>
+<a href="/nosotros.html" data-translate="nav_nosotros"></a>
+<a href="/contacto.html" data-translate="nav_contacto"></a>
 </nav>
 
 <div class="menu-toggle" id="menu-toggle">
@@ -54,7 +48,6 @@ gtag('config', 'AW-17967606627');
 <div class="products-container">
 
 
-<!-- TOLDO VERTICAL BASICO -->
 <a href="productos/vertical-basico.html" class="product-card">
 <div class="product-slider" data-images='[
 "../images/1020_003.jpg"
@@ -65,14 +58,13 @@ gtag('config', 'AW-17967606627');
 </div>
 
 <div class="product-info">
-<h3>Toldo Vertical Básico/balcon</h3>
-<p>Solución sencilla y funcional para protección solar en balcones y terrazas.</p>
-<span class="price">Consultar precio</span>
+<h3 data-translate="v1_title"></h3>
+<p data-translate="v1_desc"></p>
+<span class="price" data-translate="price"></span>
 </div>
 </a>
 
 
-<!-- TOLDO VERTICAL ZIP -->
 <a href="productos/toldo-vertical-zip.html" class="product-card">
 <div class="product-slider" data-images='[
 "../images/instalaciones/instalacion-toldo-vertical-zip-sant-celoni-1.jpeg",
@@ -84,14 +76,13 @@ gtag('config', 'AW-17967606627');
 </div>
 
 <div class="product-info">
-<h3>Toldo Vertical Guia ZIP</h3>
-<p>Sistema con cierre hermético ideal para viento y máxima protección solar.</p>
-<span class="price">Consultar precio</span>
+<h3 data-translate="v2_title"></h3>
+<p data-translate="v2_desc"></p>
+<span class="price" data-translate="price"></span>
 </div>
 </a>
 
 
-<!-- TOLDO VERTICAL VARILLA -->
 <a href="productos/toldo-vertical-varilla.html" class="product-card">
 <div class="product-slider" data-images='[
 "../images/instalaciones/instalacion-toldo-vertical-guia-varilla-vilamajor-1.jpeg",
@@ -103,15 +94,21 @@ gtag('config', 'AW-17967606627');
 </div>
 
 <div class="product-info">
-<h3>Toldo Vertical Guia Con Varilla</h3>
-<p>Sistema vertical con guias y varilla interna.</p>
-<span class="price">Consultar precio</span>
+<h3 data-translate="v3_title"></h3>
+<p data-translate="v3_desc"></p>
+<span class="price" data-translate="price"></span>
 </div>
 </a>
 
 
-
+</div>
 </section>
+
+
+<div class="language-switch">
+<button id="btn-es" class="active">ES</button>
+<button id="btn-cat">CAT</button>
+</div>
 
 
 <script>
@@ -143,6 +140,94 @@ index=(index-1+images.length)%images.length;
 setImage(index);
 });
 });
+</script>
+
+
+<script>
+
+let currentLanguage="es";
+
+const translations={
+
+es:{
+
+nav_inicio:"Inicio",
+nav_galeria:"Galería",
+nav_nosotros:"Nosotros",
+nav_contacto:"Contacto",
+
+v1_title:"Toldo Vertical Básico / Balcón",
+v1_desc:"Solución sencilla y funcional para protección solar en balcones y terrazas.",
+
+v2_title:"Toldo Vertical Guía ZIP",
+v2_desc:"Sistema con cierre hermético ideal para viento y máxima protección solar.",
+
+v3_title:"Toldo Vertical Guía con Varilla",
+v3_desc:"Sistema vertical con guías y varilla interna.",
+
+price:"Consultar precio"
+
+},
+
+cat:{
+
+nav_inicio:"Inici",
+nav_galeria:"Galeria",
+nav_nosotros:"Nosaltres",
+nav_contacto:"Contacte",
+
+v1_title:"Tendal Vertical Bàsic / Balcó",
+v1_desc:"Solució senzilla i funcional per a protecció solar en balcons i terrasses.",
+
+v2_title:"Tendal Vertical Guia ZIP",
+v2_desc:"Sistema amb tancament hermètic ideal per al vent i màxima protecció solar.",
+
+v3_title:"Tendal Vertical Guia amb Varilla",
+v3_desc:"Sistema vertical amb guies i varilla interna.",
+
+price:"Consultar preu"
+
+}
+
+};
+
+function translatePage(lang){
+
+document.querySelectorAll("[data-translate]").forEach(el=>{
+const key=el.dataset.translate;
+if(translations[lang][key]){
+el.innerHTML=translations[lang][key];
+}
+});
+
+document.documentElement.lang = lang==="cat" ? "ca" : "es";
+
+}
+
+function setLanguage(lang){
+
+currentLanguage=lang;
+
+localStorage.setItem("siteLanguage",lang);
+
+document.getElementById("btn-es").classList.toggle("active",lang==="es");
+document.getElementById("btn-cat").classList.toggle("active",lang==="cat");
+
+translatePage(lang);
+
+}
+
+document.getElementById("btn-es").onclick=()=>setLanguage("es");
+document.getElementById("btn-cat").onclick=()=>setLanguage("cat");
+
+const savedLanguage=localStorage.getItem("siteLanguage");
+
+if(savedLanguage==="cat"||savedLanguage==="es"){
+setLanguage(savedLanguage);
+}else{
+setLanguage("es");
+}
+
 </script>
 
 </body>
