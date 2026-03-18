@@ -253,6 +253,33 @@
           </select>
         </div>
 
+        <!-- LONA COMPACT FIJA -->
+<div class="form-group lona-compact" style="display:none;">
+<label data-translate="label_tipo_lona">Tipo de lona</label>
+<p data-translate="lona_opaca" style="color:#ccc;">Lona opaca</p>
+
+<label data-translate="label_color_lona_compact" style="margin-top:10px;">Color de la lona</label>
+
+  <div class="color-selector">
+
+    <label>
+      <input type="radio" name="color_lona" value="Blanco" hidden>
+      <div class="color-option" style="background:#f5f5f5;"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lona" value="Beige" hidden>
+      <div class="color-option" style="background:#d8c7a1;"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lona" value="Gris" hidden>
+      <div class="color-option" style="background:#6e6e6e;"></div>
+    </label>
+
+  </div>
+</div>
+
         <!-- COLOR LONA -->
         <div class="form-group lona-box">
           <label data-translate="label_color_lona">Color de la lona</label>
@@ -289,6 +316,12 @@
             <option value="Motorizado" data-translate="opt_motorizado">Motorizado</option>
           </select>
         </div>
+
+        <!-- ACCIONAMIENTO FIJO -->
+<div class="form-group accionamiento-fijo" style="display:none;">
+  <label data-translate="accionamiento_fijo">Accionamiento</label>
+<p data-translate="accionamiento_motor_fijo" style="color:#ccc;">Motorizado</p>
+</div>
 
         <!-- EXTRAS TOLDOS -->
         <div class="form-group extras-toldos">
@@ -377,6 +410,11 @@
           <input type="email" name="email" required>
         </div>
 
+        <div class="form-group">
+          <label data-translate="label_localidad">Localidad</label>
+          <input type="text" name="localidad" required>
+        </div>
+
         <div id="form-status" style="margin-top:15px; color:#d4af37; font-size:14px;"></div>
         <button type="submit" class="btn-dark" id="submit-button" data-translate="btn_solicitar">Solicitar Presupuesto</button>
       </form>
@@ -419,12 +457,18 @@
       label_color_lona: "Color de la lona",
       link_colores_lona: "Colores de lona",
       label_medidas: "Medidas",
+      lona_opaca: "Lona opaca",
+      label_color_lona_compact: "Color de la lona",
+      accionamiento_fijo: "Accionamiento",
+      accionamiento_motor_fijo: "Motorizado",
       label_accionamiento: "Accionamiento",
       label_extras_disponibles: "Extras disponibles",
       label_opciones_pergola: "Opciones de la pérgola",
       label_nombre: "Nombre",
       label_telefono: "Teléfono",
       label_email: "Email",
+      label_localidad: "Localidad",
+      label_comentarios: "Cuéntanos tu idea",
 
       opt_acrilica: "Acrílica",
       opt_acrilica_resinada: "Acrílica Resinada",
@@ -452,6 +496,7 @@
       placeholder_salida: "Salida (mm)",
       placeholder_largo: "Largo (mm)",
       placeholder_altura: "Altura (mm)",
+      
 
       sending_budget: "Enviando presupuesto...",
       sending_button: "Enviando...",
@@ -486,12 +531,18 @@
       label_color_lona: "Color de la lona",
       link_colores_lona: "Colors de lona",
       label_medidas: "Mides",
+      lona_opaca: "Lona opaca",
+      label_color_lona_compact: "Color de la lona",
+      accionamiento_fijo: "Accionament",
+      accionamiento_motor_fijo: "Motoritzat",
       label_accionamiento: "Accionament",
       label_extras_disponibles: "Extres disponibles",
       label_opciones_pergola: "Opcions de la pèrgola",
       label_nombre: "Nom",
       label_telefono: "Telèfon",
       label_email: "Email",
+      label_localidad: "Localitat",
+      label_comentarios: "Explica'ns la teva idea",
 
       opt_acrilica: "Acrílica",
       opt_acrilica_resinada: "Acrílica resinada",
@@ -519,6 +570,7 @@
       placeholder_salida: "Sortida (mm)",
       placeholder_largo: "Llarg (mm)",
       placeholder_altura: "Alçada (mm)",
+      
 
       sending_budget: "Enviant pressupost...",
       sending_button: "Enviant...",
@@ -649,6 +701,8 @@
   const coloresBioclimatica = document.querySelector(".colores-bioclimatica");
   const tipoLona = document.querySelector(".tipo-lona");
   const lonaBox = document.querySelector(".lona-box");
+  const lonaCompact = document.querySelector(".lona-compact");
+  const accionamientoFijo = document.querySelector(".accionamiento-fijo");
   const accionamientoBox = document.querySelector(".accionamiento-box");
   const extrasToldos = document.querySelector(".extras-toldos");
   const extrasBioclimatica = document.querySelector(".extras-bioclimatica");
@@ -666,6 +720,9 @@
     if (accionamientoBox) accionamientoBox.style.display = "none";
     if (extrasToldos) extrasToldos.style.display = "none";
     if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+    // ACCIONAMIENTO FIJO
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (accionamientoFijo) accionamientoFijo.style.display = "block";
     if (alturaBox) alturaBox.style.display = "block";
     if (coloresToldos) coloresToldos.style.display = "none";
     if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
@@ -675,7 +732,15 @@
     if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
     if (colorLamas) colorLamas.style.display = "none";
     if (tipoLona) tipoLona.style.display = "none";
-    if (lonaBox) lonaBox.style.display = "block";
+    // LONA COMPACT
+    if (tipoLona) tipoLona.style.display = "none";
+    if (lonaBox) lonaBox.style.display = "none";
+    if (lonaCompact) lonaCompact.style.display = "block";
+
+    // ACCIONAMIENTO FIJO
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (accionamientoFijo) accionamientoFijo.style.display = "block";
+    if (lonaBox) lonaBox.style.display = "none";
     if (accionamientoBox) accionamientoBox.style.display = "none";
     if (extrasToldos) extrasToldos.style.display = "none";
     if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
