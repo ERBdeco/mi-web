@@ -221,25 +221,52 @@
   <label data-translate="label_color_lamas">Color de las lamas</label>
 
   <div class="color-selector">
+
     <label>
-      <input type="radio" name="color_lamas" value="Blanco" hidden>
-      <div class="color-option" style="background:#ffffff;" data-color="Blanco"></div>
+      <input type="radio" name="color_lamas" value="Blanco Alaska 9016 tex" hidden>
+      <div class="color-option" style="background:#f5f5f5;" data-color="Blanco Alaska (9016 tex)"></div>
     </label>
 
     <label>
-      <input type="radio" name="color_lamas" value="RAL 7016" hidden>
-      <div class="color-option" style="background:#383e42;" data-color="RAL 7016"></div>
+      <input type="radio" name="color_lamas" value="Crema 1013 tex" hidden>
+      <div class="color-option" style="background:#eae1c8;" data-color="Crema (1013 tex)"></div>
     </label>
 
     <label>
-      <input type="radio" name="color_lamas" value="RAL 7022" hidden>
-      <div class="color-option" style="background:#4b4f44;" data-color="RAL 7022"></div>
+      <input type="radio" name="color_lamas" value="Cappuccino 1019 tex" hidden>
+      <div class="color-option" style="background:#c7b39a;" data-color="Cappuccino (1019 tex)"></div>
     </label>
 
     <label>
-      <input type="radio" name="color_lamas" value="Negro Texturado" hidden>
-      <div class="color-option" style="background:#1a1a1a;" data-color="Negro Texturado"></div>
+      <input type="radio" name="color_lamas" value="Marrón chocolate 8017 tex" hidden>
+      <div class="color-option" style="background:#3f2a23;" data-color="Marrón chocolate (8017 tex)"></div>
     </label>
+
+    <label>
+      <input type="radio" name="color_lamas" value="Gris 7040 tex" hidden>
+      <div class="color-option" style="background:#8f969c;" data-color="Gris (7040 tex)"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lamas" value="Plata 7035 tex" hidden>
+      <div class="color-option" style="background:#d7d7d7;" data-color="Plata (7035 tex)"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lamas" value="Gris antracita 7016 tex" hidden>
+      <div class="color-option" style="background:#383e42;" data-color="Gris antracita (7016 tex)"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lamas" value="Negro 9005 tex" hidden>
+      <div class="color-option" style="background:#000000;" data-color="Negro (9005 tex)"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lamas" value="Color a petición" hidden>
+      <div class="color-option color-carta" data-color="Color a petición">A</div>
+    </label>
+
   </div>
 </div>
 
@@ -255,26 +282,36 @@
 
         <!-- LONA COMPACT FIJA -->
 <div class="form-group lona-compact" style="display:none;">
-<label data-translate="label_tipo_lona">Tipo de lona</label>
-<p data-translate="lona_opaca" style="color:#ccc;">Lona opaca</p>
+  <label data-translate="label_tipo_lona">Tipo de lona</label>
+  <p data-translate="lona_opaca" style="color:#ccc;">Lona opaca</p>
 
-<label data-translate="label_color_lona_compact" style="margin-top:10px;">Color de la lona</label>
+  <label data-translate="label_color_lona_compact" style="margin-top:10px;">Color de la lona</label>
 
   <div class="color-selector">
 
     <label>
       <input type="radio" name="color_lona" value="Blanco" hidden>
-      <div class="color-option" style="background:#f5f5f5;"></div>
+      <div class="color-option" style="background:#f5f5f5;" data-color="Blanco"></div>
     </label>
 
     <label>
-      <input type="radio" name="color_lona" value="Beige" hidden>
-      <div class="color-option" style="background:#d8c7a1;"></div>
+      <input type="radio" name="color_lona" value="Crema" hidden>
+      <div class="color-option" style="background:#e6d8b5;" data-color="Crema"></div>
     </label>
 
     <label>
       <input type="radio" name="color_lona" value="Gris" hidden>
-      <div class="color-option" style="background:#6e6e6e;"></div>
+      <div class="color-option" style="background:#9a9a9a;" data-color="Gris"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lona" value="Antracita" hidden>
+      <div class="color-option" style="background:#383e42;" data-color="Antracita"></div>
+    </label>
+
+    <label>
+      <input type="radio" name="color_lona" value="Negro" hidden>
+      <div class="color-option" style="background:#000000;" data-color="Negro"></div>
     </label>
 
   </div>
@@ -383,18 +420,26 @@
             </label>
 
             <label class="extra-item">
-              <input type="checkbox" name="extras[]" value="Sensor lluvia">
-              <span data-translate="extra_sensor_lluvia">Sensor lluvia</span>
+              <input type="checkbox" name="extras[]" value="Sensor viento">
+              <span data-translate="extra_sensor_viento">Sensor viento/sol</span>
             </label>
 
             <label class="extra-item">
-              <input type="checkbox" name="extras[]" value="Sensor viento">
-              <span data-translate="extra_sensor_viento">Sensor viento</span>
+              <input type="checkbox" name="extras[]" value="Cristal corredero">
+              <span data-translate="extra_cristal_corredero">Cristal corredero</span>
+            </label>
+
+            <label class="extra-item">
+              <input type="checkbox" name="extras[]" value="Cristal fijo">
+              <span data-translate="extra_cristal_fijo">Cristal fijo</span>
             </label>
           </div>
         </div>
 
         <!-- DATOS CLIENTE -->
+
+         <input type="hidden" name="Idioma del cliente" id="idioma-visible">
+
         <div class="form-group">
           <label data-translate="label_nombre">Nombre</label>
           <input type="text" name="nombre" required>
@@ -445,6 +490,9 @@
       compact_title: "Configura tu Pérgola Tensada Compact",
       compact_desc: "Personaliza tu pérgola Compact y déjanos tus datos para enviarte el presupuesto.",
 
+      tensada_title: "Configura tu Pérgola Tensada con Inclinación",
+      tensada_desc: "Personaliza tu pérgola Tensada con Inclinación y déjanos tus datos para enviarte el presupuesto.",
+
       concept_title: "Configura tu Toldo Concept",
       smart_title: "Configura tu Toldo Smart",
       cofre_title: "Configura tu Toldo Cofre",
@@ -486,8 +534,9 @@
       extra_led_integrado: "Iluminación LED",
       extra_zip: "Toldo ZIP",
       extra_calefaccion: "Calefacción",
-      extra_sensor_lluvia: "Sensor lluvia",
-      extra_sensor_viento: "Sensor viento",
+      extra_sensor_viento: "Sensor viento/sol",
+      extra_cristal_corredero: "Cristal corredero",
+      extra_cristal_fijo: "Cristal fijo",
 
       btn_solicitar: "Solicitar Presupuesto",
 
@@ -518,6 +567,9 @@
 
       compact_title: "Configura la teva Pèrgola Tensada Compact",
       compact_desc: "Personalitza la teva pèrgola Compact i deixa'ns les teves dades per enviar-te el pressupost.",
+
+      tensada_title: "Configura la teva Pèrgola Tensada amb Inclinació",
+      tensada_desc: "Personalitza la teva pèrgola Tensada amb inclinació i deixa'ns les teves dades per enviar-te el pressupost.",
 
       concept_title: "Configura el teu Tendal Concept",
       smart_title: "Configura el teu Tendal Smart",
@@ -560,8 +612,9 @@
       extra_led_integrado: "Il·luminació LED",
       extra_zip: "Tendal ZIP",
       extra_calefaccion: "Calefacció",
-      extra_sensor_lluvia: "Sensor de pluja",
-      extra_sensor_viento: "Sensor de vent",
+      extra_sensor_viento: "Sensor de vent/sol",
+      extra_cristal_corredero: "Vidre correder",
+      extra_cristal_fijo: "Vidre fixe",
 
       btn_solicitar: "Sol·licitar Pressupost",
 
@@ -610,6 +663,10 @@
     } else if (producto === "concept") {
       titulo.textContent = t.concept_title;
       descripcion.textContent = t.default_desc;
+    }
+     else if (producto === "tensada") {
+      titulo.textContent = t.tensada_title;
+      descripcion.textContent = t.default_desc;
     } else if (producto === "smart") {
       titulo.textContent = t.smart_title;
       descripcion.textContent = t.default_desc;
@@ -644,11 +701,17 @@
       languageHidden.value = lang;
     }
 
+    const idiomaVisible = document.getElementById("idioma-visible");
+if (idiomaVisible) {
+  idiomaVisible.value = lang === "cat" ? "Catalán" : "Castellano";
+}
+
     const subjectMap = {
       es: {
         default: "Nuevo presupuesto desde ERB Deco",
         bioclimatica: "Nuevo presupuesto - Pérgola Bioclimática",
         compact: "Nuevo presupuesto - Pérgola Compact",
+        tensada: "Nuevo presupuesto - Pérgola Tensada con Inclinación",
         concept: "Nuevo presupuesto - Toldo Concept",
         smart: "Nuevo presupuesto - Toldo Smart",
         cofre: "Nuevo presupuesto - Toldo Cofre",
@@ -659,6 +722,7 @@
         default: "Nou pressupost des d'ERB Deco",
         bioclimatica: "Nou pressupost - Pèrgola Bioclimàtica",
         compact: "Nou pressupost - Pèrgola Compact",
+        tensada: "Nou pressupost - Pèrgola Tensada amd Inclinació",
         concept: "Nou pressupost - Tendal Concept",
         smart: "Nou pressupost - Tendal Smart",
         cofre: "Nou pressupost - Tendal Cofre",
@@ -728,6 +792,25 @@
     if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
   }
   else if (producto === "compact") {
+    if (coloresToldos) coloresToldos.style.display = "none";
+    if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
+    if (colorLamas) colorLamas.style.display = "none";
+    if (tipoLona) tipoLona.style.display = "none";
+    // LONA COMPACT
+    if (tipoLona) tipoLona.style.display = "none";
+    if (lonaBox) lonaBox.style.display = "none";
+    if (lonaCompact) lonaCompact.style.display = "block";
+
+    // ACCIONAMIENTO FIJO
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (accionamientoFijo) accionamientoFijo.style.display = "block";
+    if (lonaBox) lonaBox.style.display = "none";
+    if (accionamientoBox) accionamientoBox.style.display = "none";
+    if (extrasToldos) extrasToldos.style.display = "none";
+    if (extrasBioclimatica) extrasBioclimatica.style.display = "block";
+    if (alturaBox) alturaBox.style.display = "block";
+  }
+    else if (producto === "tensada") {
     if (coloresToldos) coloresToldos.style.display = "none";
     if (coloresBioclimatica) coloresBioclimatica.style.display = "block";
     if (colorLamas) colorLamas.style.display = "none";
